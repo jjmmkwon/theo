@@ -33,7 +33,7 @@ if(screenWidth < 480) {
   intro.style.textAlign = "center";
   introContentsContainer.style.position = "relative";
 
-  document.body.style.backgroundImage = "url('Main/images/firstpage_test14_mobile.jpg')";
+  document.body.style.backgroundImage = "url('images/firstpage_test14_mobile.jpg')";
   introText.style.fontSize = "70px";
   introText.style.textAlign = "center";
   introText.innerHTML = "Find out how Theo can help you with Math <br><br>I need help with:"
@@ -43,7 +43,7 @@ if(screenWidth < 480) {
   btnText1.style.fontSize = "40px";
   btnText2.style.fontSize = "40px";
 } else {
-  document.body.style.backgroundImage = "url('Main/images/firstpage_test11.jpg')";
+  document.body.style.backgroundImage = "url('images/firstpage_test11.jpg')";
   document.body.style.backgroundPosition = "center center";
 }
 
