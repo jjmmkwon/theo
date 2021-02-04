@@ -166,24 +166,24 @@ function present(){
 //   }
 // }
 
-function onYoutubePlayer(videoID) {
-  player = new YT.Player('lecture-video', {
-    width: width,
-    height: height,
-    videoId: videoID,
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    },
-    playerVars: { // documentation: https://developers.google.com/youtube/player_parameters#rel
-      autoplay : 0,
-      rel: 0,
-      showinfo: 1,
-      modestbranding: 0,
-      ecver: 2
-    }
-  });
-}
+// function onYoutubePlayer(videoID) {
+//   player = new YT.Player('lecture-video', {
+//     width: width,
+//     height: height,
+//     videoId: videoID,
+//     events: {
+//       'onReady': onPlayerReady,
+//       'onStateChange': onPlayerStateChange
+//     },
+//     playerVars: { // documentation: https://developers.google.com/youtube/player_parameters#rel
+//       autoplay : 0,
+//       rel: 0,
+//       showinfo: 1,
+//       modestbranding: 0,
+//       ecver: 2
+//     }
+//   });
+// }
 
 // function onPlayerReady(event) {
 //   event.target.playVideo();
