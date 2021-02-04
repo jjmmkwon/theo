@@ -39,6 +39,22 @@ $(".btn-6")[0].addEventListener("click", writeBtn6ToFirebaseAndMoveOn);
 
 prepareView();
 
+var screenWidth = screen.width;
+if(screenWidth < 480) { //mobile
+  enlargeButtons()
+  text1.style.fontSize = "45px";
+}
+
+function enlargeButtons() {
+  let buttons = [button1, button2, button3, button4, button5, button6];
+  for (var i=0; i<buttons.length; i++){
+    buttons[i].classList.remove("col-md-7");
+    buttons[i].classList.add("col-md-12");
+    buttons[i].style.height = "80px";
+    buttons[i].style.fontSize = "30px";
+  }
+}
+
 function prepareView() {
   const prevAnswer = localStorage.getItem("subject");
   let subject = getSubjectName(prevAnswer)
