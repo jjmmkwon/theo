@@ -1,0 +1,94 @@
+.contents {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.text1{
+  margin-bottom: 50px;
+}
+
+.date, .buttons, .text2{
+  display : none;
+}
+
+.date {
+  margin-bottom: 50px;
+}
+
+.day-div, .month-div, .year-div {
+  position: relative;
+  display : inline-block;
+}
+
+.day, .month, .year{
+  display : inline-block;
+  text-align: center;
+  margin-top: 15px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid black;
+  background-color: #E4E6EB;
+  color: #403ca6;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.day-text, .month-text, .year-text {
+  display : inline-block;
+  position: absolute;
+  color: green;
+  font-size: 12px;
+  background-color : #E4E6EB;
+  font-weight: bold;
+}
+
+.day, .day-text{
+  width: 50px;
+}
+
+.month, .month-text{
+  width: 50px;
+}
+
+.year, .year-text{
+  width: 60px;
+}
+
+.dash{
+  display : inline-block;
+  margin: 0;
+}
+
+.onboarding-dunno-btn {
+  display: none;
+  font-size: 16px;
+}
+
+.onboarding-next-btn {
+  background-color: #403ca6;
+  color: white;
+  display: inline-block;
+}
+
+.purple {
+  color: #403ca6;
+}
+
+.btn-1, .btn-2, .btn-3, .btn-4, .btn-5, .btn-6 {
+  background-color: #E4E6EB;
+  margin-bottom: 5px;
+}
+
+.btn-1:focus, .btn-2:focus, .btn-3:focus, .btn-4:focus, .btn-5:focus, .btn-6:focus  {
+  background-color: #403ca6;
+  color: white;
+}
+
+.text2-text {
+  color: #403ca6;
+}
+
+.text2Div {
+  margin-bottom: 5px;
+}

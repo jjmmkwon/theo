@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title> Learn Math : Theo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/offer.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand brand nav-link" id="brand-link" href="index.html">Theo</a>
+    <div class="navbar-nav">
+      <a class="nav-link active signInAndOut firstFromRight" id="signInAndOut" href="signInAndOut.html">Sign In<span class="sr-only">(current)</span></a>
+    </div>
+  </nav>
+
+  <div class="container contents">
+    <h5 class="the-thing" id="the-thing"></h5>
+    <div class="line"></div>
+
+    <div class="prep col-lg-4" id = "prep">
+      <p class="title prep-title" id = "prep-title"><span class="big">1. Logical Training</span><br>for solid foundation</p>
+      <div class="line"></div>
+      <div class="prep-nums">
+        <h2 class="num" id="prep-num">2</h2><p class="units" id="prep-unit">questions/day</p>
+      </div>
+      <h5 class="explanation prep-text" id = "prep-text"> It will help you to: <br> • Understand the math concpets <br> • Solve multi-step questions </h5>
+    </div><br>
+
+    <div class="basic col-lg-4" id = "basic">
+      <p class="title basic-title" id = "basic-title"><span class="big">2. Foundation for Algebra1</span><br>so that you never have to go back</p>
+      <div class="line"></div>
+      <div class="basic-nums">
+        <h2 class="num" id="basic-num">3</h2><p class="units" id="basic-unit">weeks</p>
+      </div>
+      <h5 class="explanation basic-text" id = "basic-text"> • Daily bite-size questions to review concepts <br> • Get fully ready for Algebra1</h5>
+    </div><br>
+
+    <div class="intermediate col-lg-4" id = "intermediate">
+      <p class="title intermediate-title" id = "intermediate-title"><span class="big">3. Basics of Algebra1</span><br>to get you on track</p>
+      <div class="line"></div>
+      <div class="intermediate-nums">
+        <h2 class="num" id="intermediate-num">2</h2><p class="units" id="intermediate-unit">months</p>
+      </div>
+      <h5 class="explanation intermediate-text" id = "intermediate-text"> • Daily concept reminders <br> • Daily practice questions </h5>
+    </div><br>
+
+    <div class="advanced col-lg-4" id = "advanced">
+      <p class="title advanced-title" id = "advanced-title"><span class="big">4. Advanced Algebra1</span><br>to excel in class</p>
+      <div class="line"></div>
+      <div class="advanced-nums">
+        <h2 class="num" id="advanced-num">1</h2><p class="units" id="advanced-unit">month</p>
+      </div>
+      <h5 class="explanation advanced-text" id = "advanced-text"> • Daily feed of advanced questions <br> • Midterm and final test preps </h5>
+    </div><br /><br>
+
+    <!-- <p class="point1" id="point1">☝️ Point1: </p>
+    <p class="point2" id="point2">✌️ Point2: </p><br /> -->
+
+    <div class="container next-button-div" id="next-button-div">
+      <button class="btn btn-lg study-hour-next-btn col-lg-6 col-md-6 col-sm-6 col-6" id="study-hour-next-btn" type="button">Sign Up and Start></button>
+    </div>
+
+    <!-- Firebase ---------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+
+    <!-- js ---------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/firebaseConfig.js" charset="utf-8"></script>
+    <script src="../js/offer.js" charset="utf-8"></script>
+    <!-- <script src="../js/sessionLogging.js" charset="utf-8"></script> -->
+    <script src="../js/timeme.js"></script>
+    <script type="text/javascript">
+      TimeMe.initialize({
+        currentPageName: "home-page", // page name
+        idleTimeoutInSeconds: 15 // time before user considered idle
+      });
+    </script>
+</body>
+
+</html>

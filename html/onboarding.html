@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Math helper : Theo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/onboarding.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand brand nav-link" id="brand-link" href="index.html">Theo</a>
+      <div class="navbar-nav">
+        <a class="nav-link active signInAndOut firstFromRight" id="signInAndOut" href="signInAndOut.html">Sign In<span class="sr-only">(current)</span></a>
+      </div>
+  </nav>
+
+    <!-- Contents ---------------------------------------->
+    <div class="container contents">
+      <div class="container text1">
+        <h5 class="text1-text" id = "text1">Preparing...</h5>
+      </div>
+      <div class="container date" id = "date">
+        <div class="month-div">
+          <p class="month-text">month</p>
+          <input type="text" class ="month" id="month" name="month" value="2">
+        </div>
+        <p class ="dash">/</p>
+        <div class="day-div">
+          <p class="day-text">day</p>
+          <input type="text" class ="day" id="day" name="day" value="1">
+        </div>
+        <p class ="dash">/</p>
+        <div class="year-div">
+          <p class="year-text">year</p>
+          <input type="text" class ="year" id="year" name="year" value="2021">
+        </div>
+      </div>
+      <div class="container buttons" id = "buttons">
+        <button class="btn btn-lg btn-1 col-lg-8 col-md-7 col-sm-7 col-8" id="btn-1" type="button"></button><br>
+        <button class="btn btn-lg btn-2 col-lg-8 col-md-7 col-sm-7 col-8" id="btn-2" type="button"></button><br>
+        <button class="btn btn-lg btn-3 col-lg-8 col-md-7 col-sm-7 col-8" id="btn-3" type="button"></button><br>
+        <button class="btn btn-lg btn-4 col-lg-8 col-md-7 col-sm-7 col-8" id="btn-4" type="button"></button><br>
+        <button class="btn btn-lg btn-5 col-lg-8 col-md-7 col-sm-7 col-8" id="btn-5" type="button"></button><br>
+        <button class="btn btn-lg btn-6 col-lg-8 col-md-7 col-sm-7 col-8" id="btn-6" type="button"></button><br>
+      </div>
+      <div class="container text2Div" id ="text2Div">
+        <p class="text2-text" id = "text2"></p>
+      </div>
+      <div class="container next-button" id = "next-button">
+        <button class="btn btn-lg onboarding-next-btn col-lg-2 col-md-3 col-sm-4 col-5" id= "onboarding-next-btn" type="button">Next</button>
+        <br><button class="btn btn-lg onboarding-dunno-btn col-lg-2 col-md-3 col-sm-4 col-5" id= "onboarding-dunno-btn" type="button">I don't know</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase ---------------------------------------->
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+
+  <!-- js ---------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="../js/firebaseConfig.js" charset="utf-8"></script>
+  <script src="../js/onboarding.js" charset="utf-8"></script>
+  <!-- <script src="../js/sessionLogging.js" charset="utf-8"></script> -->
+  <script src="../js/timeme.js"></script>
+  <script type="text/javascript">
+    TimeMe.initialize({
+        currentPageName: "home-page", // page name
+        idleTimeoutInSeconds: 15 // time before user considered idle
+    });</script>
+</body>
+
+</html>

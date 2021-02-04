@@ -1,0 +1,38 @@
+.contents {
+  background-color: #F8F9FA;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0, 0.07), 0 17px 50px 0 rgba(0, 0, 0, 0.07);
+  padding-bottom: 20px;
+}
+
+.question, .answer {
+  text-align: center;
+}
+
+.question-info{
+  color: grey;
+}
+
+.question-text {
+  text-align: center;
+}
+
+.submit-btn {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.question-image{
+  width: 30%;
+}
+
+.question-image-big{
+  width: 50%;
+}
+
+.answer-image {
+  width: 8%;
+}
+
+.answer-image-mid {
+  width: 7%;
+}

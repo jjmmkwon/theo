@@ -1,0 +1,20 @@
+.contents {
+  text-align: center;
+}
+
+.text1-div {
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pre-test-intro-next-btn {
+  background-color: #403ca6;
+  color: white;
+}
+
+.purple {
+  color: #403ca6;
+  font-size: 25px;
+  font-family: sans-serif;
+}

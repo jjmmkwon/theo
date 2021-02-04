@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title> Learn Math : Theo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/diagnosticQuestion.css"/>
+</head>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand brand nav-link" id="brand-link" href="index.html">Theo</a>
+      <div class="navbar-nav">
+        <a class="nav-link active signInAndOut firstFromRight" id="signInAndOut" href="signInAndOut.html">Sign In<span class="sr-only">(current)</span></a>
+      </div>
+  </nav>
+
+  <div class="container contents">
+    <div class="container question-div">
+      <img class="question-image" id = "question-image" src="" alt="question-image"><br />
+      <img class="reference-image" id = "reference-image" src="" alt="reference-image">
+    </div><br />
+    <div class="container answers" id = "answers">
+      <form>
+        <input type="radio" name="a" value="1" class = "answer_A" > <label id = "answer_text_A">A:</label> <img class = "answer-image-mid" id = "answer_A" src="" alt="a"><br /><br />
+        <input type="radio" name="b" value="2" class = "answer_B" > <label id = "answer_text_B">B:</label> <img class = "answer-image-mid" id = "answer_B" src="" alt="b"><br /><br />
+        <input type="radio" name="c" value="3" class = "answer_C" > <label id = "answer_text_C">C:</label> <img class = "answer-image-mid" id = "answer_C" src="" alt="c"><br /><br />
+        <input type="radio" name="d" value="4" class = "answer_D" > <label id = "answer_text_D">D:</label> <img class = "answer-image-mid" id = "answer_D" src="" alt="d"><br /><br>
+        <input type="radio" name="d" value="4" class = "answer_E" > <label id = "answer_text_D">E: I Haven't learned this topic yet</label><br /><br /><br>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase ---------------------------------------->
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+
+  <!-- js ---------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="../js/firebaseConfig.js" charset="utf-8"></script>
+  <script src="../js/diagnosticQuestion.js" charset="utf-8"></script>
+  <!-- <script src="js/sessionLogging.js" charset="utf-8"></script> -->
+  <script src="../js/timeme.js"></script>
+  <script type="text/javascript">
+    TimeMe.initialize({
+        currentPageName: "home-page", // page name
+        idleTimeoutInSeconds: 15 // time before user considered idle
+    });</script>
+</body>
+
+</html>

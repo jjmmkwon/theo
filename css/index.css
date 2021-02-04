@@ -1,0 +1,185 @@
+@media only screen and (max-width: 760px) {
+  #for-mobile-detecttion { display: none; }
+}
+
+.title {
+}
+
+.body {
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+.brand {
+  color: black;
+}
+
+.signInAndOut {
+  margin-right: 30px;
+}
+
+.learn-more-btn:hover  {
+  background-color: #403ca6 !important;
+}
+
+.learn-more-btn{
+  border: none;
+  outline: none;
+  background-color: #403ca6;
+  border-radius: 9999px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.index-body {
+    /* background-image: url('../images/firstpage_test11.jpg');
+    background-size: cover;                      /* <------ */
+    /* background-repeat: no-repeat;
+    background-position: center center;             */
+}
+
+.intro{
+  height: 750px;
+  position: relative;
+  padding: 0;
+}
+
+.intro-contents{
+  width: 100%;
+  /* height: 485px; */
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.intro-text {
+  margin: 0;
+  left: 0;
+  color : white;
+  height: 20%;
+}
+
+.continue-button {
+  text-align: center;
+}
+
+.intro-continue-btn{
+  background-color: #ff6839;
+  color: white;
+  padding: 0;
+  height: 60px;
+  font-weight : bold;
+}
+
+.intro-btns{
+  height: 388px;
+  padding: 0;
+  margin-left: 0;
+  position: relative;
+  font-size:0;
+  line-height:0;
+}
+
+.intro-arrow{
+  height: 90px;
+  padding: 0;
+  position: relative;
+
+  -webkit-animation:bounce 1s infinite;
+}
+
+.arrow-image{
+  padding: 0;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+
+}
+@-webkit-keyframes bounce {
+  0%       { bottom:5px; }
+  25%, 75% { bottom:15px; }
+  50%      { bottom:20px; }
+  100%     {bottom:0;}
+}
+
+/* .intro-btns-first-half, .intro-btns-second-half{
+  height: 298px;
+  position: relative;
+  display: inline-block;
+  padding: 0;
+}
+
+.intro-btns-second-half{
+  text-align: right;
+}
+
+.intro-goal1-btn {
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+} */
+
+/* .intro-goal2-btn {
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  right: 0;
+
+  margin-left: auto;
+  margin-right: 0;
+
+  top: 0;
+}
+
+.goal1-image, .goal2-image{
+  margin-top: 5%;
+  -webkit-filter: drop-shadow(3px 3px 3px #403ca6);
+  filter: drop-shadow(3px 3px 3px #403ca6);
+} */
+
+/* .btn-text{
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+  -webkit-filter: drop-shadow(3px 3px 3px #4b4b4b);
+  filter: drop-shadow(3px 3px 3px #4b4b4b);
+} */
+
+
+.footer {
+  background-color: white;
+}
+
+.footer-columns {
+  height: 150px;
+}
+
+/* Bootstrap button color: #167AF6 */
+
+/* .longButton {
+  margin-top: 20px;
+}
+
+.start-btn-container {
+  text-align: center;
+  display: none;
+} */
+
+/* .lecture-video-container {
+  width: 100%;
+  height: 450px;
+  text-align: center;
+}
+
+.lecture-video {
+  width: 50%;
+  height: 100%;
+} */
