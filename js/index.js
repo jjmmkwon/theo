@@ -8,7 +8,8 @@ const introText = document.getElementById("intro-text");
 const introBtns = document.getElementById("intro-btns");
 const btnText1 = document.getElementById("btn-text1");
 const btnText2 = document.getElementById("btn-text2");
-const startBtn = document.getElementById("start-btn-container");
+const btnContainer = document.getElementById("continue-button");
+const continueBtn = document.getElementById("intro-continue-btn");
 
 $(".intro-continue-btn")[0].addEventListener("click", writeContinueButtonClick);
 // $(".intro-goal1-btn")[0].addEventListener("click", writeTestButtonClick);
@@ -29,19 +30,23 @@ var screenWidth = screen.width;
 document.body.style.backgroundSize = "cover";
 document.body.style.backgroundRepeat = "no-repeat";
 
-if(screenWidth < 480) {
+if(screenWidth < 480) { //mobile
   intro.style.textAlign = "center";
   introContentsContainer.style.position = "relative";
 
   document.body.style.backgroundImage = "url('images/firstpage_test14_mobile.jpg')";
   introText.style.fontSize = "70px";
   introText.style.textAlign = "center";
-  introText.innerHTML = "Find out how Theo can help you with Math <br><br>I need help with:"
+  introText.innerHTML = "Find out what Theo's AI can do for your Math:"
   introText.style.marginTop = "150px";
 
   introBtns.style.margin = "auto 0";
-  btnText1.style.fontSize = "40px";
-  btnText2.style.fontSize = "40px";
+
+  continueBtn.classList.remove("col-md-8");
+  continueBtn.classList.add("col-md-12");
+  continueBtn.style.height = "100px";
+  continueBtn.style.fontSize = "40px";
+
 } else {
   document.body.style.backgroundImage = "url('images/firstpage_test11.jpg')";
   document.body.style.backgroundPosition = "center center";
@@ -145,7 +150,7 @@ async function writeDataAndMoveOn() {
 }
 
 function present(){
-  window.location.href="../main/html/onboarding.html?" + uuid + "|0";
+  window.location.href="html/onboarding.html?" + uuid + "|0";
 }
 
 // function loadYoutube() {
