@@ -33,6 +33,33 @@ $(".btn-5")[0].addEventListener("click", writeBtn5ToFirebaseAndMoveOn);
 
 prepareView();
 
+var screenWidth = screen.width;
+if(screenWidth < 480) { //mobile
+  enlargeButtons()
+  text1.style.fontSize = "45px";
+  if (onboardingNum == 2) {
+    text1.style.fontSize = "45px";
+    small.style.color = "grey";
+    small.style.fontSize = "25px";
+  }
+}
+
+function enlargeButtons() {
+  let buttons = [button1, button2, button3, button4, button5];
+  for (var i=0; i<buttons.length; i++){
+    buttons[i].classList.remove("col-md-7");
+    buttons[i].classList.add("col-md-12");
+    buttons[i].style.height = "140px";
+    buttons[i].style.fontSize = "40px";
+    buttons[i].style.marginBottom = "30px";
+  }
+
+  nextBtn.classList.remove("col-md-3");
+  nextBtn.classList.add("col-md-12");
+  nextBtn.style.height = "140px";
+  nextBtn.style.fontSize = "40px";
+}
+
 function prepareView() {
   const prevAnswer = localStorage.getItem("subject");
   let subject = getSubjectName(prevAnswer)
@@ -61,7 +88,7 @@ function prepareView() {
     button5.innerHTML = "1: not motivated at all"
 
   } else if (onboardingNum == 2) {
-    text1.innerHTML = "<span class='small'>Now we have a few statements that may or may not apply to you. <br>There are no right or wrong answers, so just answer honestly!</span><br><br>Setbacks don't discourage me"
+    text1.innerHTML = "<span class='small' id='small'>Now we have a few statements that <br>may or may not apply to you. <br>There are no right or wrong answers, <br>so just answer honestly!</span><br><br>Setbacks don't discourage me"
 
     nextBtnDiv.style.display = "none";
     buttonsDiv.style.display = "inline-block";

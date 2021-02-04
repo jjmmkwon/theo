@@ -21,6 +21,16 @@
   padding-bottom: 50px;
 }
 
+.pre-test-submit-btn{
+  background-color: #403ca6;
+  color: white;
+}
+
+.pre-test-skip-btn {
+  background-color: grey;
+  color: white;
+}
+
 .question-image{
   width: 30%;
 }

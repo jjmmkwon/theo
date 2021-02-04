@@ -29,11 +29,82 @@ const basicTitle = document.getElementById("basic-title");
 const intermediateTitle = document.getElementById("intermediate-title");
 const advancedTitle = document.getElementById("advanced-title");
 
+const prepUnit = document.getElementById("prep-unit");
+const basicUnit = document.getElementById("basic-unit");
+const intermediateUnit= document.getElementById("intermediate-unit");
+const advancedUnit = document.getElementById("advanced-unit");
+
+const prepText = document.getElementById("prep-text");
 const basicText = document.getElementById("basic-text");
+const intermediateText = document.getElementById("intermediate-text");
+const advancedText = document.getElementById("advanced-text");
 
 $(".study-hour-next-btn")[0].addEventListener("click", writeTimeToFirebaseAndMoveOn);
 
 prepareView();
+
+var screenWidth = screen.width;
+if(screenWidth < 480) { //mobile
+  summary.style.fontSize = "50px";
+  summary.style.fontWeight = "300";
+  textSizeUp()
+  nextBtn.classList.remove("col-md-3");
+  nextBtn.classList.add("col-md-12");
+  nextBtn.style.height = "140px";
+  nextBtn.style.fontSize = "40px";
+} else {
+  summary.style.fontSize = "25px";
+}
+
+function textSizeUp(){
+  const prepBig = document.getElementById("prepBig");
+  const basicBig = document.getElementById("basicBig");
+  const interBig = document.getElementById("interBig");
+  const adBig = document.getElementById("adBig");
+  prepBig.style.fontSize = "45px";
+  basicBig.style.fontSize = "45px";
+  interBig.style.fontSize = "45px";
+  adBig.style.fontSize = "45px";
+
+  prepTitle.style.fontSize = "25px";
+  basicTitle.style.fontSize = "25px";
+  intermediateTitle.style.fontSize = "25px";
+  advancedTitle.style.fontSize = "25px";
+
+  prepUnit.style.fontSize = "40px";
+  prepUnit.style.color = "grey";
+  prepUnit.style.fontWeight = "300";
+
+  basicUnit.style.fontSize = "40px";
+  basicUnit.style.color = "grey";
+  basicUnit.style.fontWeight = "300";
+
+  intermediateUnit.style.fontSize = "40px";
+  intermediateUnit.style.color = "grey";
+  intermediateUnit.style.fontWeight = "300";
+
+  advancedUnit.style.fontSize = "40px";
+  advancedUnit.style.color = "grey";
+  advancedUnit.style.fontWeight = "300";
+
+  prepText.style.fontSize = "25px";
+  prepText.style.color = "black";
+  prepText.style.fontWeight = "300";
+
+  basicText.style.fontSize = "25px";
+  basicText.style.color = "black";
+  basicText.style.fontWeight = "300";
+
+  intermediateText.style.fontSize = "25px";
+  intermediateText.style.color = "black";
+  intermediateText.style.fontWeight = "300";
+
+  advancedText.style.fontSize = "25px";
+  advancedText.style.color = "black";
+  advancedText.style.fontWeight = "300";
+
+
+}
 
 function prepareView() {
   prevAnswer = localStorage.getItem("subject");
@@ -60,41 +131,41 @@ function prepareTexts() {
   if (iqLevel == 3 && subjectLevel == 3) { // logic : 하 || 과목: 하
     //start from logic
     console.log("place : 1")
-    prepDiv.innerHTML = "<span class='big'>1. Mathmatical thinking </span><br>for solid foundation</p>"
-    basicTitle.innerHTML = "<span class='big'>2. Foundation for " + subject; + "</span><br>so that you never have to go back</p>"
-    intermediateTitle.innerHTML = "<span class='big'>3. Basics of " + subject + "</span><br>to get you on the right track"
-    advancedTitle.innerHTML = "<span class='big'>4. Advanced " + subject + "</span><br>to excel in class"
+    prepTitle.innerHTML = "<span class='big' id ='prepBig'>1. Mathmatical thinking </span><br>for solid foundation</p>"
+    basicTitle.innerHTML = "<span class='big' id ='basicBig'>2. Foundation for " + subject; + "</span><br>so that you never have to go back</p>"
+    intermediateTitle.innerHTML = "<span class='big' id ='interBig'>3. Basics of " + subject + "</span><br>to get you on the right track"
+    advancedTitle.innerHTML = "<span class='big' id ='adBig'>4. Advanced " + subject + "</span><br>to excel in class"
     basicText.innerHTML = "• Daily bite-size questions to review concepts <br> • Get fully ready for " + subject
 
   } else if (iqLevel == 2 && subjectLevel == 3) { // logic : 중 && 과목 : 하
     // start from basic
     console.log("place : 2")
     prepDiv.style.display = "none";
-    basicTitle.innerHTML = "<span class='big'> 1. Foundation for " + subject;
-    intermediateTitle.innerHTML = "<span class='big'>2. Basics of " + subject + "</span><br>to get you on the right track"
-    advancedTitle.innerHTML = "<span class='big'>3. Advanced " + subject + "</span><br>to excel in class"
+    basicTitle.innerHTML = "<span class='big' id ='basicBig'> 1. Foundation for " + subject;
+    intermediateTitle.innerHTML = "<span class='big' id ='interBig'>2. Basics of " + subject + "</span><br>to get you on the right track"
+    advancedTitle.innerHTML = "<span class='big' id ='adBig' >3. Advanced " + subject + "</span><br>to excel in class"
     basicText.innerHTML = "• Daily bite-size questions to review concepts <br> • Get fully ready for " + subject
   } else if ((iqLevel == 2 || subjectLevel == 2) && subjectLevel != 1) { // logic : 중 || 과목 : 중 && 과목 : 상 아님
     // start from intermediate
     console.log("place : 3")
     prepDiv.style.display = "none";
     basicDiv.style.display = "none";
-    intermediateTitle.innerHTML = "<span class='big'>1. Basics of " + subject + "</span><br>to get you on the right track"
-    advancedTitle.innerHTML = "<span class='big'>2. Advanced " + subject + "</span><br>to excel in class"
+    intermediateTitle.innerHTML = "<span class='big' id ='interBig'>1. Basics of " + subject + "</span><br>to get you on the right track"
+    advancedTitle.innerHTML = "<span class='big' id ='adBig'>2. Advanced " + subject + "</span><br>to excel in class"
   } else if (subjectLevel == 1){ // 과목 : 상
     // start from intermediate
     console.log("place : 4")
     prepDiv.style.display = "none";
     basicDiv.style.display = "none";
-    intermediateTitle.innerHTML = "<span class='big'>1. Basics of " + subject + "</span><br>to get you on the right track"
-    advancedTitle.innerHTML = "<span class='big'>2. Advanced " + subject + "</span><br>to excel in class"
+    intermediateTitle.innerHTML = "<span class='interBig'>1. Basics of " + subject + "</span><br>to get you on the right track"
+    advancedTitle.innerHTML = "<span class='adBig'>2. Advanced " + subject + "</span><br>to excel in class"
   } else { // default
     // start from basic
     console.log("place : 5")
     prepDiv.style.display = "none";
-    basicTitle.innerHTML = "<span class='big'>2. Foundation for " + subject; + "</span><br>so that you never have to go back</p>"
-    intermediateTitle.innerHTML = "<span class='big'>1. Basics of " + subject + "</span><br>to get you on the right track"
-    advancedTitle.innerHTML = "<span class='big'>3. Advanced " + subject + "</span><br>to excel in class"
+    basicTitle.innerHTML = "<span class='big' id ='basicBig'>2. Foundation for " + subject; + "</span><br>so that you never have to go back</p>"
+    intermediateTitle.innerHTML = "<span class='big' id ='interBig'>1. Basics of " + subject + "</span><br>to get you on the right track"
+    advancedTitle.innerHTML = "<span class='big' id ='adBig'>3. Advanced " + subject + "</span><br>to excel in class"
     basicText.innerHTML = "• Daily bite-size questions to review concepts <br> • Get fully ready for " + subject
   }
 }

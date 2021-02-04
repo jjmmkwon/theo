@@ -16,6 +16,18 @@ const nextBtn = document.getElementById("pre-test-intro-next-btn");
 
 $(".pre-test-intro-next-btn")[0].addEventListener("click", writeTimeToFirebaseAndMoveOn);
 
+var screenWidth = screen.width;
+if(screenWidth < 480) { //mobile
+  text1.style.fontSize = "45px";
+  text1.style.fontWeight = "300"
+
+  nextBtn.classList.remove("col-md-3");
+  nextBtn.classList.add("col-md-5");
+  nextBtn.style.height = "140px";
+  nextBtn.style.fontSize = "40px";
+
+}
+
 prepareView();
 
 function prepareView() {

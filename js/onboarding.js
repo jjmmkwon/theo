@@ -50,9 +50,20 @@ function enlargeButtons() {
   for (var i=0; i<buttons.length; i++){
     buttons[i].classList.remove("col-md-7");
     buttons[i].classList.add("col-md-12");
-    buttons[i].style.height = "80px";
-    buttons[i].style.fontSize = "30px";
+    buttons[i].style.height = "140px";
+    buttons[i].style.fontSize = "40px";
+    buttons[i].style.marginBottom = "30px";
+
+    if (onboardingNum == 1) {
+      buttons[i].style.fontSize = "30px";
+    }
   }
+
+  nextBtn.classList.remove("col-md-3");
+  nextBtn.classList.add("col-md-12");
+  nextBtn.style.height = "140px";
+  nextBtn.style.fontSize = "40px";
+
 }
 
 function prepareView() {
@@ -104,7 +115,7 @@ function prepareView() {
     } else if (struggle == 2 ){
       text = "Many find them confusing. But with the right amount of practice, you can easily get used to them. <br> You actually need to get used to them ASAP to excel in Math. <br> And when Theo design your custom learning path, it will keep that in mind."
     } else if (struggle == 3 ){
-      text = "Many struggle with graphs, especially the transformation part. And as you know, you will eventually need to master them to be on track. <br> So Theo will make sure that you get the right way of thinking with the right type of practice questions and contents."
+      text = "Many struggle with graphs, especially the transformation part. And as you know, you will eventually need to master them to be on track. <br><br> So Theo will make sure that you get the right way of thinking with the right type of practice questions and contents."
     } else if (struggle == 4) {
       text = "We've met so many students struggling with small mistakes. We understand that it is frustrating, and that worst of all, it leads you to a lower grade than you think you deserve. <br>Theo will keep that in mind and will try the best to train you to minimize mistakes."
     } else if (struggle == 5) {
@@ -112,6 +123,7 @@ function prepareView() {
     } else {
       text = "Okay. No matter where you need help, Theo will try its best to cover it with curriculum and exercises that's customized for you."
     }
+    text1.style.fontWeight = "300";
     text1.innerHTML = text
     nextBtn.innerHTML = "Next"
 
@@ -130,12 +142,16 @@ function prepareView() {
 
   } else if (onboardingNum == 4) {
     console.log("onboarding 4")
-    text1.innerHTML = "Thank you for your answers. <br>Now, Theo's AI has prepared dignostic questions for you. <br>You will be able to find out what type of study path suits you <br>to get you on track for " + subject + " with about 7 questions"
+    text1.innerHTML = "Thank you for your answers. <br><br>Now, Theo's AI has prepared dignostic questions for you. <br>You will be able to find out what type of study path suits you <br>to get you on track for " + subject + " with about 7 questions"
     text2Div.style.display = "inline-block";
     text2.innerHTML = "First < 4 questions: " + subject + "<br> Last 3 questions: Logical thinking"
     dateDiv.style.display = "none";
     nextBtn.innerHTML = "Start"
 
+    text1.style.fontWeight = "300";
+    if(screenWidth < 480) { //mobile
+      text2.style.fontSize = "35px";
+    }
   } else if (onboardingNum == 100) { // subject not availble
     text1.innerHTML = "Theo will provide custom curriculums for other Math subjects soon, <br>but at this moment, <br>Algebra, Geometry and Calculus are the only subjects covered."
     dateDiv.style.display = "none";

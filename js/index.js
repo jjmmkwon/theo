@@ -6,6 +6,8 @@ const intro = document.getElementById("intro");
 const introContentsContainer = document.getElementById("intro-contents");
 const introText = document.getElementById("intro-text");
 const introBtns = document.getElementById("intro-btns");
+const arrowDiv = document.getElementById("intro-arrow");
+const arrowImage = document.getElementById("arrow-image");
 const btnText1 = document.getElementById("btn-text1");
 const btnText2 = document.getElementById("btn-text2");
 const btnContainer = document.getElementById("continue-button");
@@ -35,17 +37,20 @@ if(screenWidth < 480) { //mobile
   introContentsContainer.style.position = "relative";
 
   document.body.style.backgroundImage = "url('images/firstpage_test14_mobile.jpg')";
-  introText.style.fontSize = "70px";
+  introText.style.fontSize = "80px";
   introText.style.textAlign = "center";
   introText.innerHTML = "Find out what Theo's AI can do for your Math:"
-  introText.style.marginTop = "150px";
+  introText.style.marginTop = "200px";
 
   introBtns.style.margin = "auto 0";
+  arrowDiv.style.marginTop = "120px";
+  arrowDiv.style.marginBottom = "120px";
+  arrowImage.style.height = "45px";
 
   continueBtn.classList.remove("col-md-8");
   continueBtn.classList.add("col-md-12");
-  continueBtn.style.height = "100px";
-  continueBtn.style.fontSize = "40px";
+  continueBtn.style.height = "140px";
+  continueBtn.style.fontSize = "50px";
 
 } else {
   document.body.style.backgroundImage = "url('images/firstpage_test11.jpg')";

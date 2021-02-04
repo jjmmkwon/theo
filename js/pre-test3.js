@@ -17,9 +17,31 @@ var dataExist = false;
 var answerButtonsTest3 = document.getElementsByName("pre-test3");
 const theoLink = document.getElementById("brand-link");
 const signInAndOut = document.getElementById("signInAndOut");
+const questionText = document.getElementById("question-text");
+const questionImage = document.getElementById("question-image");
+const submitBtn = document.getElementById("submit-btn");
+const skipBtn = document.getElementById("skip-btn");
 
-$(".pre-test-submit-btn3")[0].addEventListener("click", writeTest3AnswerToFirebase);
+$(".pre-test-submit-btn")[0].addEventListener("click", writeTest3AnswerToFirebase);
 $(".pre-test-skip-btn")[0].addEventListener("click", skipAndProceed);
+
+var screenWidth = screen.width;
+if(screenWidth < 480) { //mobile
+  submitBtn.classList.remove("col-md-3");
+  submitBtn.classList.add("col-md-5");
+  submitBtn.style.height = "140px";
+  submitBtn.style.fontSize = "40px";
+  skipBtn.classList.remove("col-md-3");
+  skipBtn.classList.add("col-md-5");
+  skipBtn.style.height = "140px";
+  skipBtn.style.fontSize = "40px";
+  skipBtn.style.margin = "30px";
+
+  questionImage.style.width = "700px";
+  questionImage.style.height = "180px";
+
+  questionText.style.fontSize = "45px"
+}
 
 $(document).ready(function() {
   checkForLogIn();
@@ -90,7 +112,7 @@ function writePreTest3AnswerData(answer) {
     } else {
       moveOn()
     }
-  }
+  });
 }
 
 function skipAndProceed() {

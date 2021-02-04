@@ -23,6 +23,7 @@ const answerTextA = document.getElementById("answer_text_A");
 const answerTextB = document.getElementById("answer_text_B");
 const answerTextC = document.getElementById("answer_text_C");
 const answerTextD = document.getElementById("answer_text_D");
+const answerTextE = document.getElementById("answer_text_E");
 const answerA = document.getElementById("answer_A");
 const answerB = document.getElementById("answer_B");
 const answerC = document.getElementById("answer_C");
@@ -34,6 +35,13 @@ $(".answer_B")[0].addEventListener("click", writeBtn2ToFirebaseAndMoveOn);
 $(".answer_C")[0].addEventListener("click", writeBtn3ToFirebaseAndMoveOn);
 $(".answer_D")[0].addEventListener("click", writeBtn4ToFirebaseAndMoveOn);
 $(".answer_E")[0].addEventListener("click", writeBtn5ToFirebaseAndMoveOn);
+
+var screenWidth = screen.width;
+if(screenWidth < 480) { //mobile
+  questionImage.style.height = "70px";
+  referenceImage.style.height = "450px";
+  adjustAnswerSizes("40px");
+}
 
 prepareView();
 
@@ -58,17 +66,34 @@ $(document).ready(function() {
   checkForLogIn();
 });
 
+function adjustAnswerSizes(size){
+  let answerImages = [answerA, answerB, answerC, answerD];
+  for (var i=0; i<answerImages.length; i++) {
+    answerImages[i].style.height = size
+  }
+  let answerTexts= [answerTextA, answerTextB, answerTextC, answerTextD, answerTextE];
+  for (var i=0; i<answerTexts.length; i++) {
+    answerTexts[i].style.fontSize = size
+  }
+}
+
 function prepareAlgebra1() {
   if (digQNum == 0) {
     questionImage.src = "../images/Diagnostic Questions/Algebra1/1.png"
-    questionImage.style.height = "80px";
     referenceImage.style.display = "none";
     answerA.src = "../images/Diagnostic Questions/Algebra1/1_a.png"
     answerB.src = "../images/Diagnostic Questions/Algebra1/1_b.png"
     answerC.src = "../images/Diagnostic Questions/Algebra1/1_c.png"
     answerD.src = "../images/Diagnostic Questions/Algebra1/1_d.png"
+
+    if(screenWidth < 480) { //mobile
+      questionImage.style.height = "120px";
+      adjustAnswerSizes("80px")
+      answerTextE.style.fontSize = "25px";
+    } else {
+      questionImage.style.height = "80px";
+    }
   } else if (digQNum == 1) {
-    console.log("here")
     questionImage.src = "../images/Diagnostic Questions/Algebra1/2.png";
     referenceImage.src = "../images/Diagnostic Questions/Algebra1/2_graph.png";
     answerTextA.innerHTML = "A"
