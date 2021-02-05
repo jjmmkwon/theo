@@ -33,7 +33,7 @@ prepareView();
 function prepareView() {
   prevAnswer = localStorage.getItem("subject");
   subject = getSubjectName(prevAnswer)
-  text1.innerHTML = "Now, the last step! <br><br> We have questions about <br>your motivation, sleep, and how you feel about yourself. <br><br> Answers will be used to fine-tune<br>the difficulty & frequency of practice questions.";
+  text1.innerHTML = "Great job! <br><br>One thing we found out from <br>teaching students was that <br>student's psychological characteristics and <br>daily bio-rhythm matter. <br><br>So, tell us about your character  <br>and habits, and Theo will figure out <br>the most efficient way for you to learn " + subject + ", <br>with minimum amount of stress and the maximum <br>result on the time you spend."
 }
 
 function getSubjectName(answer) {

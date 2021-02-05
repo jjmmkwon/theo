@@ -68,7 +68,7 @@ function prepareView() {
   let subject = getSubjectName(prevAnswer)
   const struggle = localStorage.getItem("struggle")
 
-  if (onboardingNum == 0) {
+  if (onboardingNum == 4) {
     text1.innerHTML = "How many hours do you usually sleep?"
 
     nextBtnDiv.style.display = "none";
@@ -79,7 +79,7 @@ function prepareView() {
     button4.innerHTML = "4-6 hours"
     button5.innerHTML = "less than 4 hours"
 
-  } else if (onboardingNum == 1) {
+  } else if (onboardingNum == 5) {
     text1.innerHTML = "How motivated are you about " + subject
 
     nextBtnDiv.style.display = "none";
@@ -90,8 +90,8 @@ function prepareView() {
     button4.innerHTML = "2"
     button5.innerHTML = "1: not motivated at all"
 
-  } else if (onboardingNum == 2) {
-    text1.innerHTML = "<span class='small' id='small'>Now we have a few statements that <br>may or may not apply to you. <br>There are no right or wrong answers, <br>so just answer honestly!</span><br><br>Setbacks don't discourage me"
+  } else if (onboardingNum == 0) {
+    text1.innerHTML = "<span class='small' id='small'>Following statements may or may not apply to you. <br>There are no right or wrong answers, <br>so just answer honestly!</span><br><br>Setbacks don't discourage me"
 
     nextBtnDiv.style.display = "none";
     buttonsDiv.style.display = "inline-block";
@@ -101,7 +101,7 @@ function prepareView() {
     button4.innerHTML = "Not much like me"
     button5.innerHTML = "Not like me at all"
 
-  } else if (onboardingNum == 3) {
+  } else if (onboardingNum == 1) {
     text1.innerHTML = "I finish whatever I begin"
 
     nextBtnDiv.style.display = "none";
@@ -112,7 +112,7 @@ function prepareView() {
     button4.innerHTML = "Not much like me"
     button5.innerHTML = "Not like me at all"
 
-  } else if (onboardingNum == 4) {
+  } else if (onboardingNum == 2) {
     text1.innerHTML = "I couldn't find something because my desk, locker, or bedroom was mess"
 
     nextBtnDiv.style.display = "none";
@@ -123,7 +123,7 @@ function prepareView() {
     button4.innerHTML = "About once a week"
     button5.innerHTML = "At least once a day"
 
-  } else if (onboardingNum == 5) {
+  } else if (onboardingNum == 3) {
     text1.innerHTML = "I did not remember what my teacher told me to do"
 
     nextBtnDiv.style.display = "none";

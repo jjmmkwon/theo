@@ -3,7 +3,7 @@ var queryString = location.search.substring(1);
 var data = queryString.split("|");
 var uuid = data[0];
 var onboardingNum = data[1];
-var onboardingCount = 5;
+var onboardingCount = 6;
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -43,9 +43,6 @@ var screenWidth = screen.width;
 if(screenWidth < 480) { //mobile
   enlargeButtons()
   text1.style.fontSize = "45px";
-  if(onboardingNum == 4) { //mobile
-    text2.style.fontSize = "35px";
-  }
 }
 
 function enlargeButtons() {
@@ -110,44 +107,58 @@ function prepareView() {
     console.log("onboarding 2")
     var text = ""
     if (struggle == 1) {
-      text = "Got it. <br> All you need to do is to spend some time on the appropriate exercises to fill the gap. <br> And Theo will custom design the most efficient way to do it for you, so no worries!"
+      text = "Got it. <br><br> All you need to do is to spend <br>some time on the appropriate exercises to fill the gap. <br><br>And after a few questions, <br>Theo will be able to custom design<br> the most efficient way to do it for you."
     } else if (struggle == 2 ){
-      text = "Many students find them confusing. But with the right amount of practice, you can easily get used to them. <br> When Theo designs your custom learning path, it will keep that in mind."
+      text = "Many students find them confusing.<br><br>But with the right amount <br>of practice, you can easily get used to them. <br><br>And after a few questions, <br>Theo will be able to custom design<br> the most efficient way to practice."
     } else if (struggle == 3 ){
-      text = "Many students struggle with graphs, especially the transformation part. <br><br> Theo will make sure that you get them with the appropriate type and amount of practice questions."
+      text = "Many students struggle with graphs, especially <br>the transformation part. <br><br> And all you need is just <br>the right type of practice questions.<br><br> And after a few questions, <br>Theo will be able to custom design<br> them for you."
     } else if (struggle == 4) {
-      text = "We've met so many students struggling with small mistakes. We understand that it is frustrating. <br>Theo will keep this in mind and will try the best to train you to minimize mistakes."
+      text = "We've met so many students struggling with small mistakes. <br>And we understand that it is frustrating. <br><br>And after a few questions, <br>Theo will be able to custom design<br> the most efficient way to train you to minimize mistakes."
     } else if (struggle == 5) {
-      text = "We know that there are not enough self-study guides and practice questions out there. But no worries. Theo will pick you up from where you are, and guide you to your goal with plenty of exercises, resources, and customized curriculum that suit your level."
+      text = "We know that there are not enough <br>self-study guides and practice questions out there. <br><br>After a few questions, <br>Theo will pick you up from where you are,<br> and guide you to your goal with<br> plenty of exercises and resources <br>that suit your level."
     } else {
-      text = "Okay. No matter where you need help, Theo will try its best to cover it with curriculum and exercises customized for you."
+      text = "Got it. <br> From now on, we will ask you a few questions so that <br>we better understand about your needs. <br><br>And at the end of the questions, we will give you a summary <br>of the customized path to boost your " + subject + " skills"
     }
     text1.style.fontWeight = "300";
     text1.innerHTML = text
     nextBtn.innerHTML = "Next"
 
   } else if (onboardingNum == 3) {
-    console.log("onboarding 3")
-    text1.innerHTML = "So, right now, how are you studying " + subject + "?"
+    text1.innerHTML = "So, what is your grade for " + subject + " so far? (approximation is okay)"
 
     nextBtnDiv.style.display = "none";
     buttonsDiv.style.display = "inline-block";
-    button1.innerHTML = "I just do homeworks from school"
-    button2.innerHTML = "I study on my own through internet sites (ex. Khan Academy, Youtube)"
-    button3.innerHTML = "I have a private tutor"
-    button4.innerHTML = "I do a study group with my friend"
-    button5.innerHTML = "I study with my parent(s)"
-    button6.innerHTML = "Other";
+    button1.innerHTML = "Between A- and A+ (or above 90)"
+    button2.innerHTML = "Between B- and B+ (or between 80-89)"
+    button3.innerHTML = "Between C- and C+ (or between 60-79)"
+    button4.innerHTML = "Between D- and D+ (or between 30-59)"
+    button5.innerHTML = "F (or between 0-29)"
+    button6.style.display = "none";
 
   } else if (onboardingNum == 4) {
-    console.log("onboarding 4")
-    text1.innerHTML = "Thank you for your answers. <br><br>Now, Theo's AI has prepared diagnostic questions for you. <br>You will be able to find out what type of study path best suits you <br>to get you on track for " + subject + " by answering about 7 questions"
-    text2Div.style.display = "inline-block";
-    text2.innerHTML = "First < 4 questions: " + subject + "<br> Last 3 questions: Logical thinking"
-    dateDiv.style.display = "none";
-    nextBtn.innerHTML = "Start"
+    text1.innerHTML = "What was your grade from the previous Math subject you took right before " + subject + "?"
 
-    text1.style.fontWeight = "300";
+    nextBtnDiv.style.display = "none";
+    buttonsDiv.style.display = "inline-block";
+    button1.innerHTML = "Between A- and A+ (or above 90)"
+    button2.innerHTML = "Between B- and B+ (or between 80-89)"
+    button3.innerHTML = "Between C- and C+ (or between 70-79)"
+    button4.innerHTML = "Between D- and D+ (or between 60-69)"
+    button5.innerHTML = "F (or between 0-59)"
+    button6.style.display = "none";
+
+  } else if (onboardingNum == 5) {
+    text1.innerHTML = "What is your target grade for " + subject + "?"
+
+    nextBtnDiv.style.display = "none";
+    buttonsDiv.style.display = "inline-block";
+    button1.innerHTML = "A or above (or above 93)"
+    button2.innerHTML = "A- (or between 90 - 92)"
+    button3.innerHTML = "B+ (or between 87 - 89)"
+    button4.innerHTML = "B (or between 83 - 86)"
+    button5.innerHTML = "B- (or between 80 - 82)"
+    button6.innerHTML = "C+ (or between 77 - 79)"
+
   } else if (onboardingNum == 100) { // subject not availble
     text1.innerHTML = "Theo will provide custom curriculums for other Math subjects soon, <br>but at this moment, <br>Algebra, Geometry and Calculus are the only subjects covered."
     dateDiv.style.display = "none";
@@ -254,7 +265,7 @@ function writeAnswerToFirebaseAndMoveOn() {
 
 function moveOn(answer) {
   if (onboardingCount - 1 == parseInt(onboardingNum)) { // done
-    window.location.href = "diagnosticQuestion.html?" + uuid+ "|0";
+    window.location.href = "pre-test-intro.html?" + uuid;
   } else { // next Q
     if (onboardingNum == 0 && answer == "6") { // not availbl
       var nextNum = 100 // subject not available
@@ -299,10 +310,10 @@ function storeAnswer(answer) {
     localStorage.setItem("subject", answer);
   } else if (onboardingNum == 1) {
     localStorage.setItem("struggle", answer);
-  } else if (onboardingNum == 3){
-    localStorage.setItem("logical thinking", answer);
-  } else if (onboardingNum == 5){
-    localStorage.setItem("experience", answer);
+  } else if (onboardingNum == 3){// current grade
+    localStorage.setItem("grade", answer);
+  } else if (onboardingNum == 4){// prev grade
+    localStorage.setItem("prevGrade", answer);
   }
 }
 

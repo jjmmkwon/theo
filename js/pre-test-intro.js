@@ -31,9 +31,9 @@ function prepareView() {
   prevAnswer = localStorage.getItem("subject");
   subject = getSubjectName(prevAnswer)
   if(screenWidth < 480) { //mobile
-    text1.innerHTML = "Okay, that seems to be enough for " + subject + "<br><br>Now, we have up to <span class='purple-mobile'>3 logical thinking questions</span> for you.  <br><br>Please focus and solve the questions <span class='purple-mobile'>as fast as you can.</span>";
+    text1.innerHTML = "Thank you for your answers. <br><br>Now, to see how you think logically, <br>we've prepared 3 questions. <br><br>Please focus and solve the questions <br>as fast as you can.";
   } else {
-    text1.innerHTML = "Okay, that seems to be enough for " + subject + "<br><br>Now, we have up to <span class='purple'>3 logical thinking questions</span> for you.  <br>Please focus and solve the questions <br><span class='purple'>as fast as you can.</span>";
+    text1.innerHTML = "Thank you for your answers. <br><br>Now, to see how you think logically, <br>we've prepared 3 questions. <br><br>Please focus and solve the questions <br>as fast as you can.";
   }
 }
 
