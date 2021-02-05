@@ -152,7 +152,7 @@ function writeLearnMoreClick() {
 async function writeDataAndMoveOn() {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
   firebase.database().ref('users/' + uuid + '/' + 'index').update({
-    cohort: "MarketTest 1.0",
+    cohort: "MarketTest 1.1",
     timeSpent: timeSpentOnPage,
     dateAndTime : dateAndTime,
     timeZone : timeZone,
