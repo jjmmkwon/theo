@@ -40,7 +40,8 @@ var screenWidth = screen.width;
 if(screenWidth < 480) { //mobile
   questionImage.style.height = "70px";
   referenceImage.style.height = "450px";
-  adjustAnswerSizes("40px");
+  adjustAnswerImageSizes("40px");
+  adjustAnswerTextSizes("40px");
 }
 
 prepareView();
@@ -66,11 +67,14 @@ $(document).ready(function() {
   checkForLogIn();
 });
 
-function adjustAnswerSizes(size){
+function adjustAnswerImageSizes(size){
   let answerImages = [answerA, answerB, answerC, answerD];
   for (var i=0; i<answerImages.length; i++) {
     answerImages[i].style.height = size
   }
+}
+
+function adjustAnswerTextSizes(size) {
   let answerTexts= [answerTextA, answerTextB, answerTextC, answerTextD, answerTextE];
   for (var i=0; i<answerTexts.length; i++) {
     answerTexts[i].style.fontSize = size
@@ -88,7 +92,8 @@ function prepareAlgebra1() {
 
     if(screenWidth < 480) { //mobile
       questionImage.style.height = "120px";
-      adjustAnswerSizes("80px")
+      adjustAnswerImageSizes("80px")
+      adjustAnswerTextSizes(size)
       answerTextE.style.fontSize = "25px";
     } else {
       questionImage.style.height = "80px";
@@ -126,6 +131,9 @@ function prepareAlgebra1() {
     answerB.style.height = "140px"
     answerC.style.height = "140px"
     answerD.style.height = "140px"
+    if(screenWidth < 480) { //mobile
+      adjustAnswerImageSizes("340px")
+    }
   }
 }
 
@@ -179,6 +187,13 @@ function prepareGeometry() {
     answerB.style.height = "20px"
     answerC.style.height = "14px"
     answerD.style.height = "20px"
+
+    if(screenWidth < 480) { //mobile
+      questionImage.style.height = "340px"
+      adjustAnswerImageSizes("40px")
+      answerC.style.height = "27px"
+    }
+
   }
 }
 
@@ -195,6 +210,11 @@ function prepareAlgebra2() {
     answerB.style.height = "20px"
     answerC.style.height = "20px"
     answerD.style.height = "25px"
+
+    if(screenWidth < 480) { //mobile
+      adjustAnswerImageSizes("40px")
+      answerD.style.height = "50px"
+    }
   } else if (digQNum == 1) {
     questionImage.src = "../images/Diagnostic Questions/Algebra2/2.png";
     referenceImage.style.display = "none";
@@ -218,6 +238,7 @@ function prepareAlgebra2() {
     answerB.style.display = "none"
     answerC.style.display = "none"
     answerD.style.display = "none"
+
   } else if (digQNum == 3) {
     questionImage.src = "../images/Diagnostic Questions/Algebra2/4.png";
     referenceImage.style.display = "none";
@@ -256,6 +277,12 @@ function preparePreCal() {
     answerB.style.height = "140px"
     answerC.style.height = "140px"
     answerD.style.height = "140px"
+
+    if(screenWidth < 480) { //mobile
+      questionImage.style.height = "200px"
+      adjustAnswerImageSizes("300px")
+    }
+
   } else if (digQNum == 2) {
     questionImage.style.height = "80px"
     questionImage.src = "../images/Diagnostic Questions/PreCal/2.png";
@@ -268,6 +295,11 @@ function preparePreCal() {
     answerB.style.display = "none"
     answerC.style.display = "none"
     answerD.style.display = "none"
+
+    if(screenWidth < 480) { //mobile
+      questionImage.style.height = "200px"
+    }
+
   } else if (digQNum == 3) {
     questionImage.src = "../images/Diagnostic Questions/PreCal/3.png";
     referenceImage.style.display = "none"
@@ -306,6 +338,12 @@ function prepareCal() {
     answerB.style.height = "20px"
     answerC.style.height = "20px"
     answerD.style.height = "20px"
+
+    if(screenWidth < 480) { //mobile
+      questionImage.style.height = "200px"
+      adjustAnswerImageSizes("50px")
+    }
+
   } else if (digQNum == 2) {
     questionImage.src = "../images/Diagnostic Questions/Cal/3.png";
     referenceImage.src = "../images/Diagnostic Questions/Cal/3_graph.png"
@@ -317,6 +355,10 @@ function prepareCal() {
     answerB.style.height = "40px"
     answerC.style.height = "40px"
     answerD.style.height = "40px"
+
+    if(screenWidth < 480) { //mobile
+      adjustAnswerImageSizes("80px")
+    }
   } else if (digQNum == 3) {
     questionImage.style.height = "100px"
     questionImage.src = "../images/Diagnostic Questions/Cal/4.png";
@@ -329,6 +371,10 @@ function prepareCal() {
     answerB.style.display = "none"
     answerC.style.display = "none"
     answerD.style.display = "none"
+
+    if(screenWidth < 480) { //mobile
+      questionImage.style.height = "200px"
+    }
   }
 }
 

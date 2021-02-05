@@ -22,14 +22,14 @@
     </nav>
 
     <!-- Intro -->
-    <div class="formContainer">
-      <h1 class="signUpTitle"> Sign Up </h1>
-      <p class="signUpDescription"> to save your curriculum and start</p>
+    <div class="formContainer" id="formContainer">
+      <br /><br /><h1 class="signUpTitle" id="signUpTitle"> Sign Up </h1>
+      <p class="signUpDescription" id="signUpDescription"> to save your test results and start</p>
       <br/>
       <br/>
-      <input type = "email" placeholder="email" class="email" id="email"/><br/>
+      <input type = "email" placeholder="email" class="email" id="email"/><br/><br/><br/>
       <input type = "password" placeholder="password" class="password" id="password"/><br/>
-      <button oncick = "signUp()" class="signUp" id="signUp">Sign Up</button><br/><br/>
+      <br/><br/><button oncick = "signUp()" class="signUp" id="signUp">Sign Up</button><br/><br/><br/><br/>
     </div>
 
     <!-- Firebase ---------------------------------------->
@@ -41,7 +41,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/firebaseConfig.js" charset="utf-8"></script>
     <script src="../js/signUp.js" charset="utf-8"></script>
-    <script src="http://www.youtube.com/player_api"></script>
+    <!-- <script src="http://www.youtube.com/player_api"></script> -->
     <script src="../js/timeme.js"></script>
     <script type="text/javascript">
       TimeMe.initialize({

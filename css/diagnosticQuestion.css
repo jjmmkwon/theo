@@ -3,6 +3,13 @@
   margin-top: 70px;
 }
 
+input[type=radio] {
+    border: 0px;
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+}
+
 .question-text{
   margin-bottom: 50px;
 }

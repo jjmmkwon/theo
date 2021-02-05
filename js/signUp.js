@@ -6,6 +6,13 @@ const uuid = data[0];
 const theoLink = document.getElementById("brand-link");
 const signInAndOut = document.getElementById("signInAndOut");
 
+const formContainer = document.getElementById("formContainer");
+const signUpTitle = document.getElementById("signUpTitle");
+const signUpDescription = document.getElementById("signUpDescription");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const signUpBtn = document.getElementById("signUp");
+
 var justSignedUp = false;
 var level;
 var firebaseID = ""
@@ -15,6 +22,26 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 $(".signUp")[0].addEventListener("click", signUp);
+
+var screenWidth = screen.width;
+if(screenWidth < 480) { //mobile
+  formContainer.style.width = "80%"
+  formContainer.style.height = "60%"
+  signUpTitle.style.fontSize = "70px"
+  signUpDescription.style.fontSize = "40px"
+  signUpDescription.style.color = "grey"
+
+  email.style.fontSize = "30px"
+  email.style.color = "grey"
+  password.style.fontSize = "30px"
+  password.style.color = "grey"
+
+  signUpBtn.classList.remove("col-md-3");
+  signUpBtn.classList.add("col-md-8");
+  signUpBtn.style.height = "140px";
+  signUpBtn.style.fontSize = "40px";
+} else {
+}
 
 $(document).ready(function() {
   checkForLogIn();

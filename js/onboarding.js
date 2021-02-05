@@ -43,6 +43,9 @@ var screenWidth = screen.width;
 if(screenWidth < 480) { //mobile
   enlargeButtons()
   text1.style.fontSize = "45px";
+  if(onboardingNum == 4) { //mobile
+    text2.style.fontSize = "35px";
+  }
 }
 
 function enlargeButtons() {
@@ -149,9 +152,6 @@ function prepareView() {
     nextBtn.innerHTML = "Start"
 
     text1.style.fontWeight = "300";
-    if(screenWidth < 480) { //mobile
-      text2.style.fontSize = "35px";
-    }
   } else if (onboardingNum == 100) { // subject not availble
     text1.innerHTML = "Theo will provide custom curriculums for other Math subjects soon, <br>but at this moment, <br>Algebra, Geometry and Calculus are the only subjects covered."
     dateDiv.style.display = "none";
