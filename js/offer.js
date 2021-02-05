@@ -125,8 +125,6 @@ function prepareTexts() {
   console.log("iqLevel is", iqLevel)
   console.log("subjectLevel is", subjectLevel)
   console.log("subject is", subject)
-  iqLevel = 3
-  subjectLevel = 3
 
   if (iqLevel == 3 && subjectLevel == 3) { // logic : 하 || 과목: 하
     //start from logic
