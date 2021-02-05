@@ -55,10 +55,11 @@ if(screenWidth < 480) { //mobile
   continueBtn.classList.add("col-md-12");
   continueBtn.style.height = "140px";
   continueBtn.style.fontSize = "50px";
-
+  is_mobile = true;
 } else {
   document.body.style.backgroundImage = "url('images/firstpage_test11.jpg')";
   document.body.style.backgroundPosition = "center center";
+  is_mobile = false;
 }
 
 $(document).ready(function() {
@@ -67,9 +68,6 @@ $(document).ready(function() {
   timeZone = getTimeZone()
   let dateAndTime = new Date().toString();
   getLocation(logIndexVisit, dateAndTime)
-  if( $('#for-mobile-detecttion').css('display')=='none') {
-    is_mobile = true;
-  }
 });
 
 function getUUID() {

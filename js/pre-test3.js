@@ -73,21 +73,19 @@ if(screenWidth < 480) { //mobile
   // skipBtn.style.height = "140px";
   // skipBtn.style.fontSize = "40px";
   // skipBtn.style.margin = "30px";
+}else {
+  answerbtnA.style.width = "1.5em";
+  answerbtnA.style.height = "1.5em";
+  answerbtnB.style.width = "1.5em";
+  answerbtnB.style.height = "1.5em";
+  answerbtnC.style.width = "1.5em";
+  answerbtnC.style.height = "1.5em";
+  answerbtnD.style.width = "1.5em";
+  answerbtnD.style.height = "1.5em";
 }
 
 $(document).ready(function() {
   checkForLogIn();
-  if( $('#for-mobile-detecttion').css('display')=='none') {
-  } else {
-    answerbtnA.style.width = "1.5em";
-    answerbtnA.style.height = "1.5em";
-    answerbtnB.style.width = "1.5em";
-    answerbtnB.style.height = "1.5em";
-    answerbtnC.style.width = "1.5em";
-    answerbtnC.style.height = "1.5em";
-    answerbtnD.style.width = "1.5em";
-    answerbtnD.style.height = "1.5em";
-  }
 });
 
 function checkForLogIn() {
