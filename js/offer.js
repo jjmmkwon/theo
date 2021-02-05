@@ -41,77 +41,17 @@ const advancedText = document.getElementById("advanced-text");
 
 $(".study-hour-next-btn")[0].addEventListener("click", writeTimeToFirebaseAndMoveOn);
 
+let subjectLevel = getSubjectLevel()
+let iqLevel = localStorage.getItem("level");
+
 prepareView();
 
-var screenWidth = screen.width;
-if(screenWidth < 480) { //mobile
-  summary.style.fontSize = "50px";
-  summary.style.fontWeight = "300";
-  textSizeUp()
-  nextBtn.classList.remove("col-md-3");
-  nextBtn.classList.add("col-md-12");
-  nextBtn.style.height = "140px";
-  nextBtn.style.fontSize = "40px";
-} else {
-  summary.style.fontSize = "25px";
-}
-
-function textSizeUp(){
-  const prepBig = document.getElementById("prepBig");
-  const basicBig = document.getElementById("basicBig");
-  const interBig = document.getElementById("interBig");
-  const adBig = document.getElementById("adBig");
-  prepBig.style.fontSize = "45px";
-  basicBig.style.fontSize = "45px";
-  interBig.style.fontSize = "45px";
-  adBig.style.fontSize = "45px";
-
-  prepTitle.style.fontSize = "25px";
-  basicTitle.style.fontSize = "25px";
-  intermediateTitle.style.fontSize = "25px";
-  advancedTitle.style.fontSize = "25px";
-
-  prepUnit.style.fontSize = "40px";
-  prepUnit.style.color = "grey";
-  prepUnit.style.fontWeight = "300";
-
-  basicUnit.style.fontSize = "40px";
-  basicUnit.style.color = "grey";
-  basicUnit.style.fontWeight = "300";
-
-  intermediateUnit.style.fontSize = "40px";
-  intermediateUnit.style.color = "grey";
-  intermediateUnit.style.fontWeight = "300";
-
-  advancedUnit.style.fontSize = "40px";
-  advancedUnit.style.color = "grey";
-  advancedUnit.style.fontWeight = "300";
-
-  prepText.style.fontSize = "25px";
-  prepText.style.color = "black";
-  prepText.style.fontWeight = "300";
-
-  basicText.style.fontSize = "25px";
-  basicText.style.color = "black";
-  basicText.style.fontWeight = "300";
-
-  intermediateText.style.fontSize = "25px";
-  intermediateText.style.color = "black";
-  intermediateText.style.fontWeight = "300";
-
-  advancedText.style.fontSize = "25px";
-  advancedText.style.color = "black";
-  advancedText.style.fontWeight = "300";
-
-
-}
-
-function prepareView() {
+async function prepareView() {
   prevAnswer = localStorage.getItem("subject");
   subject = getSubjectName(prevAnswer)
-
-  prepareTexts()
   summary.innerHTML = "Based on your answers, <br>here's the path that Theo's AI thinks would work best for you :";
+  await prepareTexts()
+  checkScreenSize()
 }
 
 $(document).ready(function() {
@@ -119,9 +59,6 @@ $(document).ready(function() {
 });
 
 function prepareTexts() {
-  let subjectLevel = getSubjectLevel()
-  let iqLevel = localStorage.getItem("level");
-
   console.log("iqLevel is", iqLevel)
   console.log("subjectLevel is", subjectLevel)
   console.log("subject is", subject)
@@ -134,7 +71,10 @@ function prepareTexts() {
     intermediateTitle.innerHTML = "<span class='big' id ='interBig'>3. Basics of " + subject + "</span><br>to get you on the right track"
     advancedTitle.innerHTML = "<span class='big' id ='adBig'>4. Advanced " + subject + "</span><br>to excel in class"
     basicText.innerHTML = "• Daily bite-size questions to review concepts <br> • Get fully ready for " + subject
-
+    adjustPrep()
+    adjustBasic()
+    adjustInter()
+    adjustAd()
   } else if (iqLevel == 2 && subjectLevel == 3) { // logic : 중 && 과목 : 하
     // start from basic
     console.log("place : 2")
@@ -143,6 +83,9 @@ function prepareTexts() {
     intermediateTitle.innerHTML = "<span class='big' id ='interBig'>2. Basics of " + subject + "</span><br>to get you on the right track"
     advancedTitle.innerHTML = "<span class='big' id ='adBig' >3. Advanced " + subject + "</span><br>to excel in class"
     basicText.innerHTML = "• Daily bite-size questions to review concepts <br> • Get fully ready for " + subject
+    adjustBasic()
+    adjustInter()
+    adjustAd()
   } else if ((iqLevel == 2 || subjectLevel == 2) && subjectLevel != 1) { // logic : 중 || 과목 : 중 && 과목 : 상 아님
     // start from intermediate
     console.log("place : 3")
@@ -150,13 +93,17 @@ function prepareTexts() {
     basicDiv.style.display = "none";
     intermediateTitle.innerHTML = "<span class='big' id ='interBig'>1. Basics of " + subject + "</span><br>to get you on the right track"
     advancedTitle.innerHTML = "<span class='big' id ='adBig'>2. Advanced " + subject + "</span><br>to excel in class"
+    adjustInter()
+    adjustAd()
   } else if (subjectLevel == 1){ // 과목 : 상
     // start from intermediate
     console.log("place : 4")
     prepDiv.style.display = "none";
     basicDiv.style.display = "none";
-    intermediateTitle.innerHTML = "<span class='interBig'>1. Basics of " + subject + "</span><br>to get you on the right track"
-    advancedTitle.innerHTML = "<span class='adBig'>2. Advanced " + subject + "</span><br>to excel in class"
+    intermediateTitle.innerHTML = "<span class='big' id ='interBig'>1. Basics of " + subject + "</span><br>to get you on the right track"
+    advancedTitle.innerHTML = "<span class='big' id ='adBig'>2. Advanced " + subject + "</span><br>to excel in class"
+    adjustInter()
+    adjustAd()
   } else { // default
     // start from basic
     console.log("place : 5")
@@ -165,6 +112,93 @@ function prepareTexts() {
     intermediateTitle.innerHTML = "<span class='big' id ='interBig'>1. Basics of " + subject + "</span><br>to get you on the right track"
     advancedTitle.innerHTML = "<span class='big' id ='adBig'>3. Advanced " + subject + "</span><br>to excel in class"
     basicText.innerHTML = "• Daily bite-size questions to review concepts <br> • Get fully ready for " + subject
+    adjustBasic()
+    adjustInter()
+    adjustAd()
+  }
+}
+
+function checkScreenSize() {
+  var screenWidth = screen.width;
+  if(screenWidth < 480) { //mobile
+    summary.style.fontSize = "50px";
+    summary.style.fontWeight = "300";
+
+    nextBtn.classList.remove("col-md-3");
+    nextBtn.classList.add("col-md-12");
+    nextBtn.style.height = "140px";
+    nextBtn.style.fontSize = "40px";
+  } else {
+    summary.style.fontSize = "25px";
+  }
+}
+
+function adjustPrep(){
+  var screenWidth = screen.width;
+  if(screenWidth < 480) { //mobile
+    const prepBig = document.getElementById("prepBig");
+    prepBig.style.fontSize = "45px";
+    prepTitle.style.fontSize = "25px";
+
+    prepUnit.style.fontSize = "40px";
+    prepUnit.style.color = "grey";
+    prepUnit.style.fontWeight = "300";
+
+    prepText.style.fontSize = "25px";
+    prepText.style.color = "black";
+    prepText.style.fontWeight = "300";
+  }
+
+}
+
+function adjustBasic(){
+  var screenWidth = screen.width;
+  if(screenWidth < 480) { //mobile
+    const basicBig = document.getElementById("basicBig");
+    basicBig.style.fontSize = "45px";
+    basicTitle.style.fontSize = "25px";
+    basicText.style.fontSize = "25px";
+    basicText.style.color = "black";
+    basicText.style.fontWeight = "300";
+    basicUnit.style.fontSize = "40px";
+    basicUnit.style.color = "grey";
+    basicUnit.style.fontWeight = "300";
+
+    basicText.style.fontSize = "25px";
+    basicText.style.color = "black";
+    basicText.style.fontWeight = "300";
+  }
+}
+
+function adjustInter(){
+  var screenWidth = screen.width;
+  if(screenWidth < 480) { //mobile
+    const interBig = document.getElementById("interBig");
+    interBig.style.fontSize = "45px";
+    intermediateTitle.style.fontSize = "25px";
+    intermediateUnit.style.fontSize = "40px";
+    intermediateUnit.style.color = "grey";
+    intermediateUnit.style.fontWeight = "300";
+    intermediateText.style.fontSize = "25px";
+    intermediateText.style.color = "black";
+    intermediateText.style.fontWeight = "300";
+  }
+}
+
+function adjustAd(){
+  var screenWidth = screen.width;
+  if(screenWidth < 480) { //mobile
+    const adBig = document.getElementById("adBig");
+    adBig.style.fontSize = "45px";
+    advancedTitle.style.fontSize = "25px";
+
+    advancedUnit.style.fontSize = "40px";
+    advancedUnit.style.color = "grey";
+    advancedUnit.style.fontWeight = "300";
+
+    advancedText.style.fontSize = "25px";
+    advancedText.style.color = "black";
+    advancedText.style.fontWeight = "300";
   }
 }
 
