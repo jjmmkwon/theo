@@ -23,6 +23,7 @@ $(".intro-continue-btn")[0].addEventListener("click", writeContinueButtonClick);
 
 var dataExist = false;
 var is_mobile = false;
+var dateAndTime;
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -66,8 +67,8 @@ $(document).ready(function() {
   getUUID();
   handleRegisteredUser();
   timeZone = getTimeZone()
-  let dateAndTime = new Date().toString();
-  getLocation(logIndexVisit, dateAndTime)
+  dateAndTime = new Date().toString();
+  getLocation(dateAndTime)
 });
 
 function getUUID() {
@@ -85,27 +86,10 @@ function uuidv4() {
   });
 }
 
-function logIndexVisit() {
-  var dateAndTime = new Date().toString();
-  firebase.database().ref('users/' + uuid + '/' + 'index').update({
-    visit: true,
-    cohort: "MarketTest 1.0",
-    dateAndTime: dateAndTime,
-    isMobile: is_mobile,
-    timeZone : timeZone,
-    county: country,
-    city: city
-  }, function(error) {
-    if (error) {
-    }
-  });
-}
-
-function getLocation(callback, dateAndTime) {
+function getLocation(dateAndTime) {
   jQuery.get("http://ipinfo.io", function(response) {
       city = response.city;
       country = response.country;
-      callback(uuid, dateAndTime);
   }, "jsonp");
 }
 
@@ -168,8 +152,13 @@ function writeLearnMoreClick() {
 async function writeDataAndMoveOn() {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
   firebase.database().ref('users/' + uuid + '/' + 'index').update({
+    cohort: "MarketTest 1.0",
     timeSpent: timeSpentOnPage,
-    button: button
+    dateAndTime : dateAndTime,
+    timeZone : timeZone,
+    county: country,
+    city: city,
+    isMobile: is_mobile
   }, function(error) {
     if (error) {
       present()
@@ -183,19 +172,6 @@ function present(){
   window.location.href="html/onboarding.html?" + uuid + "|0";
 }
 
-function writeData(userId, dateAndTime, session) {
-  firebase.database().ref('user journey/' + userId + '/' + session).update({
-    dateAndTime : dateAndTime,
-    timeZone : timeZone,
-    county: country,
-    city: city
-  }, function(error) {
-    if (error) {
-      console.log("error", error)
-    } else {
-    }
-  });
-}
 
 // function loadYoutube() {
 //   var tag = document.createElement('script');
