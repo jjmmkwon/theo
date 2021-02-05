@@ -1,6 +1,10 @@
 //Prepare UUID
 var uuid = "";
 
+var city = "undefined";
+var country = "undefined";
+var timeZone;
+
 var button = "";
 const intro = document.getElementById("intro");
 const introContentsContainer = document.getElementById("intro-contents");
@@ -60,7 +64,9 @@ if(screenWidth < 480) { //mobile
 $(document).ready(function() {
   getUUID();
   handleRegisteredUser();
-  logIndexVisit()
+  timeZone = getTimeZone()
+  let dateAndTime = new Date().toString();
+  getLocation(logIndexVisit, dateAndTime)
   if( $('#for-mobile-detecttion').css('display')=='none') {
     is_mobile = true;
   }
@@ -82,12 +88,35 @@ function uuidv4() {
 }
 
 function logIndexVisit() {
+  var dateAndTime = new Date().toString();
   firebase.database().ref('users/' + uuid + '/' + 'index').update({
-    visit: true
+    visit: true,
+    cohort: "MarketTest 1.0",
+    dateAndTime: dateAndTime,
+    isMobile: is_mobile,
+    timeZone : timeZone,
+    county: country,
+    city: city
   }, function(error) {
     if (error) {
     }
   });
+}
+
+function getLocation(callback, dateAndTime) {
+  jQuery.get("http://ipinfo.io", function(response) {
+      city = response.city;
+      country = response.country;
+      callback(uuid, dateAndTime);
+  }, "jsonp");
+}
+
+function getTimeZone() {
+  if (Intl.DateTimeFormat().resolvedOptions().timeZone != undefined) {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone
+  } else {
+    return "undefined";
+  }
 }
 
 function handleRegisteredUser() {
@@ -142,9 +171,7 @@ async function writeDataAndMoveOn() {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
   firebase.database().ref('users/' + uuid + '/' + 'index').update({
     timeSpent: timeSpentOnPage,
-    cohort: "MarketTest 1.0",
-    button: button,
-    isMobile: is_mobile
+    button: button
   }, function(error) {
     if (error) {
       present()
@@ -156,6 +183,20 @@ async function writeDataAndMoveOn() {
 
 function present(){
   window.location.href="html/onboarding.html?" + uuid + "|0";
+}
+
+function writeData(userId, dateAndTime, session) {
+  firebase.database().ref('user journey/' + userId + '/' + session).update({
+    dateAndTime : dateAndTime,
+    timeZone : timeZone,
+    county: country,
+    city: city
+  }, function(error) {
+    if (error) {
+      console.log("error", error)
+    } else {
+    }
+  });
 }
 
 // function loadYoutube() {

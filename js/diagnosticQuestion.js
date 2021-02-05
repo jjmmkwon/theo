@@ -28,6 +28,11 @@ const answerA = document.getElementById("answer_A");
 const answerB = document.getElementById("answer_B");
 const answerC = document.getElementById("answer_C");
 const answerD = document.getElementById("answer_D");
+const answerbtnA = document.getElementById("answer_btnA");
+const answerbtnB = document.getElementById("answer_btnB");
+const answerbtnC = document.getElementById("answer_btnC");
+const answerbtnD = document.getElementById("answer_btnD");
+const answerbtnE = document.getElementById("answer_btnE");
 const nextBtnDiv = document.getElementById("next-button");
 
 $(".answer_A")[0].addEventListener("click", writeBtn1ToFirebaseAndMoveOn);
@@ -65,6 +70,19 @@ function prepareView() {
 
 $(document).ready(function() {
   checkForLogIn();
+  if( $('#for-mobile-detecttion').css('display')=='none') {
+  } else {
+    answerbtnA.style.width = "1.5em";
+    answerbtnA.style.height = "1.5em";
+    answerbtnB.style.width = "1.5em";
+    answerbtnB.style.height = "1.5em";
+    answerbtnC.style.width = "1.5em";
+    answerbtnC.style.height = "1.5em";
+    answerbtnD.style.width = "1.5em";
+    answerbtnD.style.height = "1.5em";
+    answerbtnE.style.width = "1.5em";
+    answerbtnE.style.height = "1.5em";
+  }
 });
 
 function adjustAnswerImageSizes(size){
@@ -319,9 +337,9 @@ function prepareCal() {
     questionImage.src = "../images/Diagnostic Questions/Cal/1.png"
     referenceImage.style.display = "none"
     answerTextA.innerHTML = "A: 5"
-    answerTextB.innerHTML = "D: -5"
-    answerTextC.innerHTML = "F: 0"
-    answerTextD.innerHTML = "H: 1"
+    answerTextB.innerHTML = "B: -5"
+    answerTextC.innerHTML = "C: 0"
+    answerTextD.innerHTML = "D: 1"
     answerA.style.display = "none"
     answerB.style.display = "none"
     answerC.style.display = "none"

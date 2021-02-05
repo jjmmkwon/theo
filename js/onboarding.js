@@ -56,10 +56,6 @@ function enlargeButtons() {
     buttons[i].style.height = "140px";
     buttons[i].style.fontSize = "40px";
     buttons[i].style.marginBottom = "30px";
-
-    if (onboardingNum == 1) {
-      buttons[i].style.fontSize = "30px";
-    }
   }
 
   nextBtn.classList.remove("col-md-3");
@@ -104,7 +100,7 @@ function prepareView() {
     nextBtnDiv.style.display = "none";
     buttonsDiv.style.display = "inline-block";
     button1.innerHTML = "I feel like I'm not ready for " + subject
-    button2.innerHTML = "Abstract names and notatoins like x, y, f(x), g(h) confuses me"
+    button2.innerHTML = "Abstract names and notations like x, y, f(x), g(h) confuse me"
     button3.innerHTML = "Graphs and transformations are hard"
     button4.innerHTML = "I make small mistakes, but I'm okay with the concepts in general"
     button5.innerHTML = "I want to self-study " + subject + " in advance, but can't find the right way";
@@ -114,17 +110,17 @@ function prepareView() {
     console.log("onboarding 2")
     var text = ""
     if (struggle == 1) {
-      text = "Got it. <br> All you need to do is to spend some time on the right exercises to fill the gap. <br> And Theo will design the most efficient way to do it. So no worries."
+      text = "Got it. <br> All you need to do is to spend some time on the appropriate exercises to fill the gap. <br> And Theo will custom design the most efficient way to do it for you, so no worries!"
     } else if (struggle == 2 ){
-      text = "Many find them confusing. But with the right amount of practice, you can easily get used to them. <br> You actually need to get used to them ASAP to excel in Math. <br> And when Theo design your custom learning path, it will keep that in mind."
+      text = "Many students find them confusing. But with the right amount of practice, you can easily get used to them. <br> When Theo designs your custom learning path, it will keep that in mind."
     } else if (struggle == 3 ){
-      text = "Many struggle with graphs, especially the transformation part. And as you know, you will eventually need to master them to be on track. <br><br> So Theo will make sure that you get the right way of thinking with the right type of practice questions and contents."
+      text = "Many students struggle with graphs, especially the transformation part. <br><br> Theo will make sure that you get them with the appropriate type and amount of practice questions."
     } else if (struggle == 4) {
-      text = "We've met so many students struggling with small mistakes. We understand that it is frustrating, and that worst of all, it leads you to a lower grade than you think you deserve. <br>Theo will keep that in mind and will try the best to train you to minimize mistakes."
+      text = "We've met so many students struggling with small mistakes. We understand that it is frustrating. <br>Theo will keep this in mind and will try the best to train you to minimize mistakes."
     } else if (struggle == 5) {
-      text = "We know that there are not enough self-study guide and practice questions out there. But no worries. Theo will pick you up from where you are, and guide you to your goal with plenty of exercises, resources, and customized curriculum that suits your level."
+      text = "We know that there are not enough self-study guides and practice questions out there. But no worries. Theo will pick you up from where you are, and guide you to your goal with plenty of exercises, resources, and customized curriculum that suit your level."
     } else {
-      text = "Okay. No matter where you need help, Theo will try its best to cover it with curriculum and exercises that's customized for you."
+      text = "Okay. No matter where you need help, Theo will try its best to cover it with curriculum and exercises customized for you."
     }
     text1.style.fontWeight = "300";
     text1.innerHTML = text
@@ -145,7 +141,7 @@ function prepareView() {
 
   } else if (onboardingNum == 4) {
     console.log("onboarding 4")
-    text1.innerHTML = "Thank you for your answers. <br><br>Now, Theo's AI has prepared dignostic questions for you. <br>You will be able to find out what type of study path suits you <br>to get you on track for " + subject + " with about 7 questions"
+    text1.innerHTML = "Thank you for your answers. <br><br>Now, Theo's AI has prepared diagnostic questions for you. <br>You will be able to find out what type of study path best suits you <br>to get you on track for " + subject + " by answering about 7 questions"
     text2Div.style.display = "inline-block";
     text2.innerHTML = "First < 4 questions: " + subject + "<br> Last 3 questions: Logical thinking"
     dateDiv.style.display = "none";
@@ -245,14 +241,15 @@ function getMidDate(mm, yy) {
 }
 
 function writeAnswerToFirebaseAndMoveOn() {
-  if (onboardingNum == 0) {
-    const month = monthInput.value;
-    const year = yearInput.value;
-    storeDaysInPlan(month, year);
-    writePlanToFirebaseAndMoveOn(uuid, month, year)
-  } else {
-    writeTimeToFirebaseAndMoveOn(uuid)
-  }
+  writeTimeToFirebaseAndMoveOn(uuid)
+  // if (onboardingNum == 0) {
+  //   const month = monthInput.value;
+  //   const year = yearInput.value;
+  //   storeDaysInPlan(month, year);
+  //   writePlanToFirebaseAndMoveOn(uuid, month, year)
+  // } else {
+  //   writeTimeToFirebaseAndMoveOn(uuid)
+  // }
 }
 
 function moveOn(answer) {
@@ -339,20 +336,20 @@ function writeToFirebaseAndMoveOn(userId, answer) {
   });
 }
 
-function writePlanToFirebaseAndMoveOn(userId, month, year) {
-  var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-  timeSpentOnPage = timeSpentOnPage.toFixed(1);
-  firebase.database().ref('users/' + userId + '/onboarding/' + onboardingNum).update({
-    timeSpent: timeSpentOnPage,
-    plan: month + "/" + year
-  }, function(error) {
-    if (error) {
-      moveOn("")
-    } else {
-      moveOn("")
-    }
-  });
-}
+// function writePlanToFirebaseAndMoveOn(userId, month, year) {
+//   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
+//   timeSpentOnPage = timeSpentOnPage.toFixed(1);
+//   firebase.database().ref('users/' + userId + '/onboarding/' + onboardingNum).update({
+//     timeSpent: timeSpentOnPage,
+//     plan: month + "/" + year
+//   }, function(error) {
+//     if (error) {
+//       moveOn("")
+//     } else {
+//       moveOn("")
+//     }
+//   });
+// }
 
 function writeTimeToFirebaseAndMoveOn(userId) {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();

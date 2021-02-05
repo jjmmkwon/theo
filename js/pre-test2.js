@@ -27,6 +27,11 @@ const imgB = document.getElementById("answerImgB");
 const imgC = document.getElementById("answerImgC");
 const imgD = document.getElementById("answerImgD");
 
+const answerbtnA = document.getElementById("answer_btnA");
+const answerbtnB = document.getElementById("answer_btnB");
+const answerbtnC = document.getElementById("answer_btnC");
+const answerbtnD = document.getElementById("answer_btnD");
+
 $(".answer_A")[0].addEventListener("click", writeBtn1ToFirebaseAndMoveOn);
 $(".answer_B")[0].addEventListener("click", writeBtn2ToFirebaseAndMoveOn);
 $(".answer_C")[0].addEventListener("click", writeBtn3ToFirebaseAndMoveOn);
@@ -72,6 +77,17 @@ if(screenWidth < 480) { //mobile
 
 $(document).ready(function() {
   checkForLogIn();
+  if( $('#for-mobile-detecttion').css('display')=='none') {
+  } else {
+    answerbtnA.style.width = "1.5em";
+    answerbtnA.style.height = "1.5em";
+    answerbtnB.style.width = "1.5em";
+    answerbtnB.style.height = "1.5em";
+    answerbtnC.style.width = "1.5em";
+    answerbtnC.style.height = "1.5em";
+    answerbtnD.style.width = "1.5em";
+    answerbtnD.style.height = "1.5em";
+  }
 });
 
 function checkForLogIn() {
