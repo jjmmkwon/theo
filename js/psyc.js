@@ -12,6 +12,7 @@ const theoLink = document.getElementById("brand-link");
 const signInAndOut = document.getElementById("signInAndOut");
 
 // CONTENTS
+const questionNum = document.getElementById("questionNum")
 const text1 = document.getElementById("text1");
 const buttonsDiv = document.getElementById("buttons");
 const button1 = document.getElementById("btn-1");
@@ -61,6 +62,8 @@ function enlargeButtons() {
 }
 
 function prepareView() {
+  let num = parseInt(onboardingNum) + 1
+  questionNum.innerHTML = "Question " + num + " of 6"
   const prevAnswer = localStorage.getItem("subject");
   let subject = getSubjectName(prevAnswer)
   const struggle = localStorage.getItem("struggle")
