@@ -62,8 +62,10 @@ function prepareTexts() {
   console.log("iqLevel is", iqLevel)
   console.log("subjectLevel is", subjectLevel)
   console.log("subject is", subject)
+
   subjectLevel = 2
   iqLevel= 1
+  
   if (subjectLevel >1) {
     if (iqLevel == 3) {
       prepTitle.innerHTML = "<span class='big' id ='prepBig'>1. Mathmatical thinking </span><br>for solid foundation</p>"

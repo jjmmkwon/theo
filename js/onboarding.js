@@ -265,7 +265,7 @@ function writeAnswerToFirebaseAndMoveOn() {
 
 function moveOn(answer) {
   if (onboardingCount - 1 == parseInt(onboardingNum)) { // done
-    window.location.href = "pre-test-intro.html?" + uuid;
+    window.location.href = "offer.html?" + uuid;
   } else { // next Q
     if (onboardingNum == 0 && answer == "6") { // not availbl
       var nextNum = 100 // subject not available
@@ -334,7 +334,7 @@ function writeToFirebaseAndMoveOn(userId, answer) {
   }
 
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-  firebase.database().ref('users/' + userId + '/onboarding/' + onboardingNum).update({
+  firebase.database().ref('test1_2/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
     timeSpent: timeSpentOnPage,
     question : text1.innerHTML,
     answer: answer + ' : ' + innerHTML
@@ -365,7 +365,7 @@ function writeToFirebaseAndMoveOn(userId, answer) {
 function writeTimeToFirebaseAndMoveOn(userId) {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
   timeSpentOnPage = timeSpentOnPage.toFixed(1);
-  firebase.database().ref('users/' + userId + '/onboarding/' + onboardingNum).update({
+  firebase.database().ref('test1_2/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
     timeSpent: timeSpentOnPage
   }, function(error) {
     if (error) {
