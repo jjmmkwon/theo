@@ -344,7 +344,7 @@ function moveOn() {
 
 function writeTimeToFirebaseAndMoveOn() {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-  firebase.database().ref('test1_2/' + 'users/' + uuid + '/study hour').update({
+  firebase.database().ref('test1_2/' + 'users/' + uuid + '/offer').update({
     timeSpent: timeSpentOnPage
   }, function(error) {
     if (error) {

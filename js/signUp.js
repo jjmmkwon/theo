@@ -80,7 +80,20 @@ async function signUp() {
 }
 
 function saveDataAndProceedToUnderConstruction(user) {
-  proceedToUnderConstruction()
+  userId = firebase.auth().currentUser.uid;
+  saveFirebaseUUID(userId)
+}
+
+function saveFirebaseUUID(userId) {
+  firebase.database().ref('test1_2/' + 'users/' + uuid + '/uuid').update({
+    uuid: userId
+  }, function(error) {
+    if (error) {
+      proceedToUnderConstruction()
+    } else {
+      proceedToUnderConstruction()
+    }
+  });
 }
 
 function getLevel() {
