@@ -65,7 +65,7 @@ function prepareTexts() {
 
   subjectLevel = 2
   iqLevel= 1
-  
+
   if (subjectLevel >1) {
     if (iqLevel == 3) {
       prepTitle.innerHTML = "<span class='big' id ='prepBig'>1. Mathmatical thinking </span><br>for solid foundation</p>"
@@ -344,7 +344,7 @@ function moveOn() {
 
 function writeTimeToFirebaseAndMoveOn() {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-  firebase.database().ref('users/' + uuid + '/study hour').update({
+  firebase.database().ref('test1_2/' + 'users/' + uuid + '/study hour').update({
     timeSpent: timeSpentOnPage
   }, function(error) {
     if (error) {
