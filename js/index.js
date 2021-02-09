@@ -65,6 +65,7 @@ if(screenWidth < 480) { //mobile
 
 $(document).ready(function() {
   getUUID();
+  logVisit();
   handleRegisteredUser();
   timeZone = getTimeZone()
   dateAndTime = new Date().toString();
@@ -149,10 +150,19 @@ function writeLearnMoreClick() {
 //     writeDataAndMoveOn()
 // });
 
-async function writeDataAndMoveOn() {
+function logVisit() {
+  firebase.database().ref('test1_2/' + 'users/' + uuid + '/' + 'visit').update({
+    cohort: "MarketTest 1.2"
+  }, function(error) {
+    if (error) {
+    } else {
+    }
+  });
+}
+
+function writeDataAndMoveOn() {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
   firebase.database().ref('test1_2/' + 'users/' + uuid + '/' + 'index').update({
-    cohort: "MarketTest 1.2",
     timeSpent: timeSpentOnPage,
     dateAndTime : dateAndTime,
     timeZone : timeZone,
