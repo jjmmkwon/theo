@@ -17,7 +17,7 @@ const btnText2 = document.getElementById("btn-text2");
 const btnContainer = document.getElementById("continue-button");
 const continueBtn = document.getElementById("intro-continue-btn");
 
-$(".intro-continue-btn")[0].addEventListener("click", writeContinueButtonClick);
+// $(".intro-continue-btn")[0].addEventListener("click", writeContinueButtonClick);
 // $(".intro-goal1-btn")[0].addEventListener("click", writeTestButtonClick);
 // $(".intro-goal2-btn")[0].addEventListener("click", writeSelfStudyButtonClick);
 
@@ -34,14 +34,14 @@ firebase.initializeApp(firebaseConfig);
 // const height = "354.0";
 
 var screenWidth = screen.width;
-document.body.style.backgroundSize = "cover";
-document.body.style.backgroundRepeat = "no-repeat";
+//document.body.style.backgroundSize = "cover";
+//document.body.style.backgroundRepeat = "no-repeat";
 
 if(screenWidth < 480) { //mobile
   intro.style.textAlign = "center";
   introContentsContainer.style.position = "relative";
 
-  document.body.style.backgroundImage = "url('images/firstpage_test14_mobile.jpg')";
+  //document.body.style.backgroundImage = "url('images/firstpage_test14_mobile.jpg')";
   introText.style.fontSize = "80px";
   introText.style.textAlign = "center";
   introText.innerHTML = "Find out what Theo's AI can do for your Math:"
@@ -58,8 +58,8 @@ if(screenWidth < 480) { //mobile
   continueBtn.style.fontSize = "50px";
   is_mobile = true;
 } else {
-  document.body.style.backgroundImage = "url('images/firstpage_test11.jpg')";
-  document.body.style.backgroundPosition = "center center";
+  //document.body.style.backgroundImage = "url('images/firstpage_test11.jpg')";
+  //document.body.style.backgroundPosition = "center center";
   is_mobile = false;
 }
 
@@ -151,7 +151,7 @@ function writeLearnMoreClick() {
 // });
 
 function logVisit() {
-  firebase.database().ref('test1_2/' + 'users/' + uuid + '/' + 'visit').update({
+  firebase.database().ref('test2_1/' + 'users/' + uuid + '/' + 'visit').update({
     cohort: "MarketTest 1.2"
   }, function(error) {
     if (error) {
@@ -162,7 +162,7 @@ function logVisit() {
 
 function writeDataAndMoveOn() {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-  firebase.database().ref('test1_2/' + 'users/' + uuid + '/' + 'index').update({
+  firebase.database().ref('test2_1/' + 'users/' + uuid + '/' + 'index').update({
     timeSpent: timeSpentOnPage,
     dateAndTime : dateAndTime,
     timeZone : timeZone,
