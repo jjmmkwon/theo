@@ -1,6 +1,10 @@
 //Prepare UUID
 var uuid = "";
 
+var queryString = location.search.substring(1);
+var data = queryString.split("|");
+var onboardingNum = data[0];
+
 var city = "undefined";
 var country = "undefined";
 var timeZone;
@@ -8,18 +12,27 @@ var timeZone;
 var button = "";
 const intro = document.getElementById("intro");
 const introContentsContainer = document.getElementById("intro-contents");
-const introText = document.getElementById("intro-text");
-const introBtns = document.getElementById("intro-btns");
-const arrowDiv = document.getElementById("intro-arrow");
-const arrowImage = document.getElementById("arrow-image");
-const btnText1 = document.getElementById("btn-text1");
-const btnText2 = document.getElementById("btn-text2");
-const btnContainer = document.getElementById("continue-button");
-const continueBtn = document.getElementById("intro-continue-btn");
+const text1 = document.getElementById("text1");
+const button1 = document.getElementById("btn-1");
+const button2 = document.getElementById("btn-2");
+const button3 = document.getElementById("btn-3");
+const button4 = document.getElementById("btn-4");
+const button5 = document.getElementById("btn-5");
+const button6 = document.getElementById("btn-6");
+// const introText = document.getElementById("intro-text");
+// const introBtns = document.getElementById("intro-btns");
+// const arrowDiv = document.getElementById("intro-arrow");
+// const arrowImage = document.getElementById("arrow-image");
+// const btnText1 = document.getElementById("btn-text1");
+// const btnText2 = document.getElementById("btn-text2");
+// const btnContainer = document.getElementById("continue-button");
+// const continueBtn = document.getElementById("intro-continue-btn");
 
-// $(".intro-continue-btn")[0].addEventListener("click", writeContinueButtonClick);
-// $(".intro-goal1-btn")[0].addEventListener("click", writeTestButtonClick);
-// $(".intro-goal2-btn")[0].addEventListener("click", writeSelfStudyButtonClick);
+$(".btn-1")[0].addEventListener("click", writeBtn1ToFirebaseAndMoveOn);
+$(".btn-2")[0].addEventListener("click", writeBtn2ToFirebaseAndMoveOn);
+$(".btn-3")[0].addEventListener("click", writeBtn3ToFirebaseAndMoveOn);
+$(".btn-4")[0].addEventListener("click", writeBtn4ToFirebaseAndMoveOn);
+$(".btn-5")[0].addEventListener("click", writeBtn5ToFirebaseAndMoveOn);
 
 var dataExist = false;
 var is_mobile = false;
@@ -38,29 +51,98 @@ var screenWidth = screen.width;
 //document.body.style.backgroundRepeat = "no-repeat";
 
 if(screenWidth < 480) { //mobile
-  intro.style.textAlign = "center";
-  introContentsContainer.style.position = "relative";
-
-  //document.body.style.backgroundImage = "url('images/firstpage_test14_mobile.jpg')";
-  introText.style.fontSize = "80px";
-  introText.style.textAlign = "center";
-  introText.innerHTML = "Find out what Theo's AI can do for your Math:"
-  introText.style.marginTop = "200px";
-
-  introBtns.style.margin = "auto 0";
-  arrowDiv.style.marginTop = "120px";
-  arrowDiv.style.marginBottom = "120px";
-  arrowImage.style.height = "45px";
-
-  continueBtn.classList.remove("col-md-8");
-  continueBtn.classList.add("col-md-12");
-  continueBtn.style.height = "140px";
-  continueBtn.style.fontSize = "50px";
+  // intro.style.textAlign = "center";
+  // introContentsContainer.style.position = "relative";
+  //
+  // //document.body.style.backgroundImage = "url('images/firstpage_test14_mobile.jpg')";
+  // introText.style.fontSize = "80px";
+  // introText.style.textAlign = "center";
+  // introText.innerHTML = "Find out what Theo's AI can do for your Math:"
+  // introText.style.marginTop = "200px";
+  //
+  // introBtns.style.margin = "auto 0";
+  // arrowDiv.style.marginTop = "120px";
+  // arrowDiv.style.marginBottom = "120px";
+  // arrowImage.style.height = "45px";
+  //
+  // continueBtn.classList.remove("col-md-8");
+  // continueBtn.classList.add("col-md-12");
+  // continueBtn.style.height = "140px";
+  // continueBtn.style.fontSize = "50px";
   is_mobile = true;
 } else {
   //document.body.style.backgroundImage = "url('images/firstpage_test11.jpg')";
   //document.body.style.backgroundPosition = "center center";
   is_mobile = false;
+}
+
+prepareView();
+
+function prepareView() {
+  const prevAnswer = localStorage.getItem("subject");
+  let subject = getSubjectName(prevAnswer)
+  const struggle = localStorage.getItem("struggle")
+
+  if (onboardingNum == 0) {
+    text1.innerHTML = "What is the subject you need help with?"
+
+    button1.innerHTML = getSubjectName(1)
+    button2.innerHTML = getSubjectName(2)
+    button3.innerHTML = getSubjectName(3)
+    button4.innerHTML = getSubjectName(4)
+    button5.innerHTML = getSubjectName(5)
+
+    // if (typeof prevAnswer !== undefined && prevAnswer !== null) {
+    //   const string = prevAnswer.toString()
+    //   const btnToColor = document.getElementById("btn-" + string);
+    //   btnToColor.style.backgroundColor = "#403ca6";
+    //   btnToColor.style.color = "white";
+    // }
+
+  } else if (onboardingNum == 1) {
+    text1.innerHTML = "What is your grade for " + subject + " so far? (approximation is okay)"
+
+    button1.innerHTML = "Between A- and A+ (or above 90)"
+    button2.innerHTML = "Between B- and B+ (or between 80-89)"
+    button3.innerHTML = "Between C- and C+ (or between 60-79)"
+    button4.innerHTML = "Between D- and D+ (or between 30-59)"
+    button5.innerHTML = "F (or between 0-29)"
+
+  } else if (onboardingNum == 2) {
+    text1.innerHTML = "What was your grade from the previous Math subject you took right before " + subject + "?"
+
+    button1.innerHTML = "Between A- and A+ (or above 90)"
+    button2.innerHTML = "Between B- and B+ (or between 80-89)"
+    button3.innerHTML = "Between C- and C+ (or between 70-79)"
+    button4.innerHTML = "Between D- and D+ (or between 60-69)"
+    button5.innerHTML = "F (or between 0-59)"
+  }
+}
+
+
+function getSubjectName(answer) {
+  answer = parseInt(answer)
+  switch(answer) {
+  case 1:
+    return "Algebra1"
+    break;
+  case 2:
+    return "Geometry"
+    break;
+  case 3:
+    return "Algebra2"
+    break;
+  case 4:
+    return "Pre-Calulus"
+    break;
+  case 5:
+    return "Calculus"
+    break;
+  case 6:
+    return "Other"
+    break;
+  default:
+  }
 }
 
 $(document).ready(function() {
@@ -151,35 +233,101 @@ function writeLearnMoreClick() {
 // });
 
 function logVisit() {
-  firebase.database().ref('test2_1/' + 'users/' + uuid + '/' + 'visit').update({
-    cohort: "MarketTest 1.2"
+  firebase.database().ref('test2_0/' + 'users/' + uuid + '/' + 'visit').update({
+    cohort: "MarketTest 2.0"
   }, function(error) {
     if (error) {
     } else {
-    }
-  });
-}
-
-function writeDataAndMoveOn() {
-  var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-  firebase.database().ref('test2_1/' + 'users/' + uuid + '/' + 'index').update({
-    timeSpent: timeSpentOnPage,
-    dateAndTime : dateAndTime,
-    timeZone : timeZone,
-    county: country,
-    city: city,
-    isMobile: is_mobile
-  }, function(error) {
-    if (error) {
-      present()
-    } else {
-      present()
     }
   });
 }
 
 function present(){
-  window.location.href="html/onboarding.html?" + uuid + "|0";
+  if (onboardingNum != 1 && onboardingNum != 2) {
+    window.location.href="index.html?1";
+  } else if (onboardingNum == 1) {
+    window.location.href="index.html?2";
+  } else {
+    window.location.href="html/study.html";
+  }
+}
+
+function writeBtn1ToFirebaseAndMoveOn() {
+  storeAnswer(1);
+  writeToFirebaseAndMoveOn(uuid, 1);
+}
+function writeBtn2ToFirebaseAndMoveOn() {
+  storeAnswer(2);
+  writeToFirebaseAndMoveOn(uuid, 2);
+}
+function writeBtn3ToFirebaseAndMoveOn() {
+  storeAnswer(3);
+  writeToFirebaseAndMoveOn(uuid, 3);
+}
+function writeBtn4ToFirebaseAndMoveOn() {
+  storeAnswer(4);
+  writeToFirebaseAndMoveOn(uuid, 4);
+}
+function writeBtn5ToFirebaseAndMoveOn() {
+  storeAnswer(5);
+  writeToFirebaseAndMoveOn(uuid, 5);
+}
+
+function storeAnswer(answer) {
+  if (onboardingNum == 0) {
+    localStorage.setItem("subject", answer);
+  } else if (onboardingNum == 1) {
+    localStorage.setItem("grade", answer);
+  } else if (onboardingNum == 2){// current grade
+    localStorage.setItem("prev-grade", answer);
+  }
+}
+
+function writeToFirebaseAndMoveOn(userId, answer) {
+  var innerHTML = ""
+  if (answer == 1) {
+    innerHTML = button1.innerHTML
+  } else if (answer == 2) {
+    innerHTML = button2.innerHTML
+  } else if (answer == 3) {
+    innerHTML = button3.innerHTML
+  } else if (answer == 4) {
+    innerHTML = button4.innerHTML
+  } else if (answer == 5) {
+    innerHTML = button5.innerHTML
+  }
+  var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
+
+  if (onboardingNum != "1" && onboardingNum != "2") {
+    firebase.database().ref('test2_0/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+      timeSpent: timeSpentOnPage,
+      question : text1.innerHTML,
+      answer: answer + ' : ' + innerHTML,
+      dateAndTime : dateAndTime,
+      timeZone : timeZone,
+      county: country,
+      city: city,
+      isMobile: is_mobile
+    }, function(error) {
+      if (error) {
+        present()
+      } else {
+        present()
+      }
+    });
+  } else {
+    firebase.database().ref('test2_0/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+      timeSpent: timeSpentOnPage,
+      question : text1.innerHTML,
+      answer: answer + ' : ' + innerHTML
+    }, function(error) {
+      if (error) {
+        present()
+      } else {
+        present()
+      }
+    });
+  }
 }
 
 

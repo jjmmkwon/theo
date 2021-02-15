@@ -61,23 +61,63 @@
   font-family: sans-serif;
 }
 
-.intro-btns{
+.contents {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.text1{
+  margin-top: 80px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-family:sans-serif;
+}
+
+.purple {
+  color: #403ca6;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.btn-1, .btn-2, .btn-3, .btn-4, .btn-5, .btn-6 {
+  background-color: #E4E6EB;
+  margin-bottom: 5px;
+}
+
+.btn-1:focus, .btn-2:focus, .btn-3:focus, .btn-4:focus, .btn-5:focus, .btn-6:focus  {
+  background-color: #403ca6;
+  color: white;
+}
+
+.text2-text {
+  color: #403ca6;
+}
+
+.text2Div {
+  margin-bottom: 5px;
+}
+
+
+/* .intro-btns{
   height: 388px;
   padding: 0;
   margin-left: 0;
   position: relative;
   font-size:0;
   line-height:0;
-}
+} */
 
-.intro-arrow{
+/* .intro-arrow{
   height: 90px;
   padding: 0;
   position: relative;
   -webkit-animation:bounce 1s infinite;
-}
+} */
 
-.arrow-image{
+/* .arrow-image{
   padding: 0;
   height: 20px;
   position: absolute;
@@ -108,7 +148,7 @@
   height: 60px;
   font-weight : bold;
   margin: 0;
-}
+} */
 
 
 /* .intro-btns-first-half, .intro-btns-second-half{
@@ -155,14 +195,14 @@
   filter: drop-shadow(3px 3px 3px #4b4b4b);
 } */
 
-
+/*
 .footer {
   background-color: white;
 }
 
 .footer-columns {
   height: 150px;
-}
+} */
 
 /* Bootstrap button color: #167AF6 */
 
