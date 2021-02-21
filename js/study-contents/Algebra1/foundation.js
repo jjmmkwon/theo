@@ -61,7 +61,7 @@ let study_btns = {
                         "Reading Power" : 2,
                         "Simplify Numerical Expressions" : 2,
                         "Simplify Example1" : 1,
-                        "Simplify Example2" : 1,
+                        "Simplify Example2" : 2,
                         "Q_0_1_0" : 0,
                         "Q_0_1_1" : 0
                     },

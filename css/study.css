@@ -8,11 +8,16 @@
   text-align: center;
 }
 
+.ask-div {
+  position: relative;
+}
+
 .ask-tutor {
   height : 90px;
   width: 90px;
-  margin-left: 10px;
-  margin-top: 10px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
 
 .askBtn {
