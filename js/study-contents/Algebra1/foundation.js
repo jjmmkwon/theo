@@ -10,7 +10,7 @@ let study_contents = {
                                               "Q_0_0_2" : ["The quotient of a number <span class='bold'>\\(n\\)</span> and <span class='bold'>5</span>", "Q: The word phrase above can be written as"],
                                               "Q_0_0_3" : ["<span class='bold'>3</span> more than twice <span class='bold'>a number \\(x\\)</span>", "Q: The word phrase above can be written as"],
                                               "Q_0_0_4" : ["<span class='bold'>9</span> more than <span class='bold'>10 times a number \\(x\\)</span>", "Q: The word phrase above can be written as"],
-                                              "Q_0_0_5" : ["6.7 more than the product of 5 and \\(n\\)", "Q: Q: The word phrase above can be written as"],
+                                              "Q_0_0_5" : ["6.7 more than the product of 5 and \\(n\\)", "Q: The word phrase above can be written as"],
                                               "Q_0_0_6" : ["<span class='medium'>You and some friends are going to a museum. <br>Each ticket costs $4.50. You purchased a total of \\(n\\) tickets.</span>",  "Q: Write an expression that gives the total cost of buying \\(n\\) tickets."],
                                               "Q_0_0_7" : ["<span class='medium'>You and some friends are going to a museum. <br>Each ticket costs $4.50. You purchased a total of \\(n\\) tickets.</span>",  "Q: Now, suppose the total cost was $36. <br>What is the total cost if one more ticket is purchased?"],
                                               "Q_0_0_8" : ["", "Q: Which expression gives the value in dollars of \\(d\\) dimes?"],
