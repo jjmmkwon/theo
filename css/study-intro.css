@@ -1,0 +1,28 @@
+.body {
+  text-align: center;
+}
+
+.profile-image {
+  margin-top: 50px;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.intro-text {
+  margin-top: 30px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.bold {
+  font-weight: normal;
+}
+
+.next-btn {
+  margin-top: 30px;
+  background-color: #E4E6EB;
+  height: 70px;
+}

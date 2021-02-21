@@ -1,7 +1,6 @@
 // Prepare data
 const queryString = location.search.substring(1);
 const data = queryString.split("|");
-const uuid = data[0];
 
 const theoLink = document.getElementById("brand-link");
 const signInAndOut = document.getElementById("signInAndOut");
@@ -13,12 +12,25 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const signUpBtn = document.getElementById("signUp");
 
+var uuid;
+
 var justSignedUp = false;
 var level;
 var firebaseID = ""
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+getUUID()
+
+function getUUID() {
+  if (localStorage.getItem("uuid") === null) {
+    uuid = uuidv4()
+    localStorage.setItem("uuid", uuid)
+  } else {
+    uuid = localStorage.getItem("uuid")
+  }
+}
 
 const auth = firebase.auth();
 $(".signUp")[0].addEventListener("click", signUp);
@@ -44,7 +56,7 @@ if(screenWidth < 480) { //mobile
 }
 
 $(document).ready(function() {
-  checkForLogIn();
+  //checkForLogIn();
 });
 
 function checkForLogIn() {
@@ -71,7 +83,7 @@ function signUp() {
   const password = document.getElementById("password");
   justSignedUp = true
     auth.createUserWithEmailAndPassword(email.value, password.value).then(function(user) {
-      saveDataAndProceedToUnderConstruction(user)
+      saveDataAndProceed(user)
    }).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -79,19 +91,19 @@ function signUp() {
     });
 }
 
-function saveDataAndProceedToUnderConstruction(user) {
+function saveDataAndProceed(user) {
   userId = firebase.auth().currentUser.uid;
   saveFirebaseUUID(userId)
 }
 
 function saveFirebaseUUID(userId) {
-  firebase.database().ref('test1_2/' + 'users/' + uuid + '/uuid').update({
+  firebase.database().ref('mvp_1_0/' + 'users/' + uuid + '/signUp').update({
     uuid: userId
   }, function(error) {
     if (error) {
-      proceedToUnderConstruction()
+      proceed()
     } else {
-      proceedToUnderConstruction()
+      proceed()
     }
   });
 }
@@ -128,9 +140,9 @@ function getLevel() {
 //   });
 // }
 
-function proceedToUnderConstruction() {
-  var url = "underconstruction.html?" + uuid;
-  window.location.href = url;
+function proceed() {
+  var nextConceptNum = localStorage.getItem("nextConceptNum")
+  window.location.href="study.html?" + "0|0" + "|" + nextConceptNum + "|1";
 }
 
 const fbErrorCodes = {

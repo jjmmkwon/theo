@@ -18,7 +18,7 @@ const button2 = document.getElementById("btn-2");
 const button3 = document.getElementById("btn-3");
 const button4 = document.getElementById("btn-4");
 const button5 = document.getElementById("btn-5");
-const button6 = document.getElementById("btn-6");
+// const button6 = document.getElementById("btn-6");
 // const introText = document.getElementById("intro-text");
 // const introBtns = document.getElementById("intro-btns");
 // const arrowDiv = document.getElementById("intro-arrow");
@@ -79,28 +79,12 @@ if(screenWidth < 480) { //mobile
 prepareView();
 
 function prepareView() {
-  const prevAnswer = localStorage.getItem("subject");
-  let subject = getSubjectName(prevAnswer)
-  const struggle = localStorage.getItem("struggle")
-
-  if (onboardingNum == 0) {
-    text1.innerHTML = "What is the subject you need help with?"
-
-    button1.innerHTML = getSubjectName(1)
-    button2.innerHTML = getSubjectName(2)
-    button3.innerHTML = getSubjectName(3)
-    button4.innerHTML = getSubjectName(4)
-    button5.innerHTML = getSubjectName(5)
-
-    // if (typeof prevAnswer !== undefined && prevAnswer !== null) {
-    //   const string = prevAnswer.toString()
-    //   const btnToColor = document.getElementById("btn-" + string);
-    //   btnToColor.style.backgroundColor = "#403ca6";
-    //   btnToColor.style.color = "white";
-    // }
-
-  } else if (onboardingNum == 1) {
-    text1.innerHTML = "What is your grade for " + subject + " so far? (approximation is okay)"
+  // const prevAnswer = localStorage.getItem("subject");
+  // let subject = getSubjectName(prevAnswer)
+  // const struggle = localStorage.getItem("struggle
+  if (onboardingNum == 0 || onboardingNum == undefined || onboardingNum == "undefined") {
+    onboardingNum = 0
+    text1.innerHTML = "Welcome! <br>Before we start, what is your grade for Algebra 1 so far? <br>(approximation is okay)"
 
     button1.innerHTML = "Between A- and A+ (or above 90)"
     button2.innerHTML = "Between B- and B+ (or between 80-89)"
@@ -108,14 +92,23 @@ function prepareView() {
     button4.innerHTML = "Between D- and D+ (or between 30-59)"
     button5.innerHTML = "F (or between 0-29)"
 
-  } else if (onboardingNum == 2) {
-    text1.innerHTML = "What was your grade from the previous Math subject you took right before " + subject + "?"
+  } else if (onboardingNum == 1) {
+    text1.innerHTML = "What was your grade from the previous Math subject you took right before Algebra 1?"
 
     button1.innerHTML = "Between A- and A+ (or above 90)"
     button2.innerHTML = "Between B- and B+ (or between 80-89)"
     button3.innerHTML = "Between C- and C+ (or between 70-79)"
     button4.innerHTML = "Between D- and D+ (or between 60-69)"
     button5.innerHTML = "F (or between 0-59)"
+
+  } else if (onboardingNum == 2){
+    text1.innerHTML = "Okay, let's start<br>"
+
+    button1.innerHTML = "NEXT"
+    button2.style.display = "none"
+    button3.style.display = "none"
+    button4.style.display = "none"
+    button5.style.display = "none"
   }
 }
 
@@ -162,6 +155,7 @@ function getUUID() {
     uuid = localStorage.getItem("uuid")
   }
 }
+
 function uuidv4() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -233,7 +227,7 @@ function writeLearnMoreClick() {
 // });
 
 function logVisit() {
-  firebase.database().ref('test2_0/' + 'users/' + uuid + '/' + 'visit').update({
+  firebase.database().ref('mvp_1_0/' + 'users/' + uuid + '/' + 'visit').update({
     cohort: "MarketTest 2.0"
   }, function(error) {
     if (error) {
@@ -248,7 +242,7 @@ function present(){
   } else if (onboardingNum == 1) {
     window.location.href="index.html?2";
   } else {
-    window.location.href="html/study.html";
+    window.location.href="html/study-intro.html";
   }
 }
 
@@ -299,7 +293,8 @@ function writeToFirebaseAndMoveOn(userId, answer) {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
 
   if (onboardingNum != "1" && onboardingNum != "2") {
-    firebase.database().ref('test2_0/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+    console.log("onboardingNum is", onboardingNum)
+    firebase.database().ref('mvp_1_0/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
       timeSpent: timeSpentOnPage,
       question : text1.innerHTML,
       answer: answer + ' : ' + innerHTML,
@@ -316,7 +311,7 @@ function writeToFirebaseAndMoveOn(userId, answer) {
       }
     });
   } else {
-    firebase.database().ref('test2_0/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+    firebase.database().ref('mvp_1_0/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
       timeSpent: timeSpentOnPage,
       question : text1.innerHTML,
       answer: answer + ' : ' + innerHTML
