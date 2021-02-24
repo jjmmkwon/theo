@@ -1,0 +1,38 @@
+.index-body {
+  text-align: center;
+}
+
+.contents-div {
+  text-align: center;
+  display: inline-block;
+  vertical-align:top;
+  margin-top: 30px;
+}
+
+.text1 {
+  font-family: sans-serif;
+  font-size: 25px;
+  font-weight: lighter;
+}
+
+.btn-section  {
+  font-family: sans-serif;
+  height: 140px;
+  background-color: #E4E6EB;
+  margin-bottom: 20px;
+  font-size: 27px;
+}
+
+.coming {
+  color: #a1a3a9;
+  background-color: #edeff3;
+}
+
+.grey {
+  color: grey;
+}
+
+.small {
+  font-size: 20px;
+  font-weight: lighter;
+}

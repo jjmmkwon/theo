@@ -23,14 +23,18 @@ function getUUID() {
 function writeToFirebaseAndMoveOn() {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
   timeSpentOnPage = timeSpentOnPage.toFixed(1);
-  firebase.database().ref('mvp_1_0/' + 'users/' + uuid + '/tutor-intro').update({
+  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/tutor-intro').update({
     timeSpent: timeSpentOnPage
   }, function(error) {
     if (error) {
-      window.location.href="study.html?0|0|0|1";
+      moveOn()
     } else {
-      window.location.href="study.html?0|0|0|1";
+      moveOn()
     }
   });
+}
 
+function moveOn() {
+  window.location.href="whatDoYouWannaStudy.html";
+  // window.location.href="study.html?0|0|0|1";
 }

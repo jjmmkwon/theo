@@ -84,7 +84,7 @@ function prepareView() {
   // const struggle = localStorage.getItem("struggle
   if (onboardingNum == 0 || onboardingNum == undefined || onboardingNum == "undefined") {
     onboardingNum = 0
-    text1.innerHTML = "Welcome! <br>Before we start, what is your grade for Algebra 1 so far? <br>(approximation is okay)"
+    text1.innerHTML = "Welcome! <br>Before we start, what is your grade for Algebra so far? <br>(approximation is okay)"
 
     button1.innerHTML = "Between A- and A+ (or above 90)"
     button2.innerHTML = "Between B- and B+ (or between 80-89)"
@@ -93,7 +93,7 @@ function prepareView() {
     button5.innerHTML = "F (or between 0-29)"
 
   } else if (onboardingNum == 1) {
-    text1.innerHTML = "What was your grade from the previous Math subject you took right before Algebra 1?"
+    text1.innerHTML = "What was your grade from the previous Math subject you took right before the current class?"
 
     button1.innerHTML = "Between A- and A+ (or above 90)"
     button2.innerHTML = "Between B- and B+ (or between 80-89)"
@@ -227,7 +227,7 @@ function writeLearnMoreClick() {
 // });
 
 function logVisit() {
-  firebase.database().ref('mvp_1_0/' + 'users/' + uuid + '/' + 'visit').update({
+  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + 'visit').update({
     cohort: "MarketTest 2.0"
   }, function(error) {
     if (error) {
@@ -294,7 +294,7 @@ function writeToFirebaseAndMoveOn(userId, answer) {
 
   if (onboardingNum != "1" && onboardingNum != "2") {
     console.log("onboardingNum is", onboardingNum)
-    firebase.database().ref('mvp_1_0/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+    firebase.database().ref('mvp_1_1/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
       timeSpent: timeSpentOnPage,
       question : text1.innerHTML,
       answer: answer + ' : ' + innerHTML,
@@ -311,7 +311,7 @@ function writeToFirebaseAndMoveOn(userId, answer) {
       }
     });
   } else {
-    firebase.database().ref('mvp_1_0/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+    firebase.database().ref('mvp_1_1/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
       timeSpent: timeSpentOnPage,
       question : text1.innerHTML,
       answer: answer + ' : ' + innerHTML

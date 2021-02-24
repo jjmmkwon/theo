@@ -30,7 +30,7 @@ $(".comments-submit-btn")[0].addEventListener("click", submit);
 function submit() {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
   const input = comments.value
-  firebase.database().ref('mvp_1_0/' + 'users/' + uuid + '/under construction comments').update({
+  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/under construction comments').update({
     timeSpent: timeSpentOnPage,
     comments: input
   }, function(error) {
