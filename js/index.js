@@ -247,48 +247,48 @@ function present(){
 }
 
 function writeBtn1ToFirebaseAndMoveOn() {
-  storeAnswer(1);
   writeToFirebaseAndMoveOn(uuid, 1);
 }
 function writeBtn2ToFirebaseAndMoveOn() {
-  storeAnswer(2);
   writeToFirebaseAndMoveOn(uuid, 2);
 }
 function writeBtn3ToFirebaseAndMoveOn() {
-  storeAnswer(3);
   writeToFirebaseAndMoveOn(uuid, 3);
 }
 function writeBtn4ToFirebaseAndMoveOn() {
-  storeAnswer(4);
   writeToFirebaseAndMoveOn(uuid, 4);
 }
 function writeBtn5ToFirebaseAndMoveOn() {
-  storeAnswer(5);
   writeToFirebaseAndMoveOn(uuid, 5);
 }
 
-function storeAnswer(answer) {
-  if (onboardingNum == 0) {
-    localStorage.setItem("subject", answer);
-  } else if (onboardingNum == 1) {
+function storeAnswer(num, answer) {
+  if (num == 0) {
     localStorage.setItem("grade", answer);
-  } else if (onboardingNum == 2){// current grade
+    localStorage.setItem("original-grade", answer);
+  } else if (num == 1) {
     localStorage.setItem("prev-grade", answer);
+  } else if (num == 2){
   }
 }
 
 function writeToFirebaseAndMoveOn(userId, answer) {
   var innerHTML = ""
   if (answer == 1) {
+    storeAnswer(onboardingNum, "A")
     innerHTML = button1.innerHTML
   } else if (answer == 2) {
+    storeAnswer(onboardingNum, "B")
     innerHTML = button2.innerHTML
   } else if (answer == 3) {
+    storeAnswer(onboardingNum, "C")
     innerHTML = button3.innerHTML
   } else if (answer == 4) {
+    storeAnswer(onboardingNum, "D")
     innerHTML = button4.innerHTML
   } else if (answer == 5) {
-    innerHTML = button5.innerHTML
+    storeAnswer(onboardingNum, "F")
+    innerHTML = button5.innerHTML // E
   }
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
 

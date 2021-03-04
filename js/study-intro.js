@@ -36,5 +36,4 @@ function writeToFirebaseAndMoveOn() {
 
 function moveOn() {
   window.location.href="whatDoYouWannaStudy.html";
-  // window.location.href="study.html?0|0|0|1";
 }

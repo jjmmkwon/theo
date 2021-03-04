@@ -141,8 +141,10 @@ function getLevel() {
 // }
 
 function proceed() {
-  var nextConceptNum = localStorage.getItem("nextConceptNum")
-  window.location.href="study.html?" + "0|0" + "|" + nextConceptNum + "|1";
+  let nextConceptNum = localStorage.getItem("nextConceptNum")
+  let chapterNum = localStorage.getItem("chapterNum")
+  let smallChapterNum = localStorage.getItem("smallChapterNum")
+  window.location.href="study.html?" + chapterNum + "|" + smallChapterNum + "|" + nextConceptNum + "|1";
 }
 
 const fbErrorCodes = {

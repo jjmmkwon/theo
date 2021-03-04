@@ -33,15 +33,40 @@
   height : 50px;
   width: 50px;
   border-radius: 25px;
-}
-
-.profile-image{
   object-fit: cover;
   overflow: hidden;
 }
 
 .stress {
   display: none;
+}
+
+.notWhatIWant {
+  position: relative;
+}
+
+.notWhatIWant-div {
+  height : 100px;
+  width: 100px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  z-index: 1;
+  padding-top: 20px;
+}
+
+.notWhatIWant-btn {
+  font-weight: lighter;
+  font-family: sans-serif;
+  font-size: 16px;
+  background-color: #edeff3;
+  color: #353639;
+  border-radius: 50px;
+
+}
+
+.moveToModal-btn {
+  color: #E4E6EB;
 }
 
 .contents-div {
@@ -67,6 +92,35 @@
   font-weight: lighter;
 }
 
+.image {
+  object-fit: cover;
+  overflow: visible;
+  display: inline;
+  margin-right: 50px;
+}
+
+.image-ctr {
+  object-fit: cover;
+  overflow: visible;
+  display: inline;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.margin-right-50 {
+  margin-right: 50px;
+}
+
+.green {
+  color : #16c79a;
+}
+
+.yellow {
+  color : #f8dc81;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -84,16 +138,34 @@
   color: grey;
 }
 
+.red {
+  color: red;
+}
+
+.correctAnswer {
+  color: red;
+  font-size: 24px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.left {
+  text-align: left;
+}
+
 .btn-nav {
   width: 100%;
-  position: absolute;
-  display: inline-block;
+  display: inline-inline-block;
   left: 0;
-  bottom: 80px;
+  margin-bottom: 50px;
+
 }
 
 .answer-btn-div {
   display: none;
+  text-align: center;
 }
 
 .question-text {
@@ -143,7 +215,7 @@
 .btns {
   margin-top: 50px;
   text-align: center;
-  display: inline-block;
+  display: none;
 }
 
 .btn-difficulty {
@@ -307,4 +379,95 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+/* MOVE TO... */
+
+.moveToModal-content {
+  background-color: #fefefe;
+  margin: 3% auto; /* 15% from the top and centered */
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+  border: 1px solid #888;
+  width: 70%; /* Could be more or less, depending on screen size */
+  font-size: 28px;
+  font-weight: lighter;
+  display: inline-block;
+  border-radius: 40px;
+}
+
+.moveToModal-text {
+  text-align: center;
+  color: #494a4d;
+  font-size: 35px;
+  margin-bottom: 60px;
+}
+
+/* .moveToModal-text {
+  font-weight: normal;
+  color: #6c6e73;
+  font-size: 24px;
+  margin-bottom: 40px;
+} */
+
+.moveToModal-suDiv {
+  /* background-color: #f7fffd; */
+  border-radius: 10px;
+  margin-bottom: 30px;
+  margin-left: 60px;
+  margin-right: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.moveToModal-btn {
+  background-color: #eaedf2;
+  box-shadow: 0 8px 8px 0 rgba(0,0,0, 0.03), 0 9px 25px 0 rgba(0,0,0, 0.03);
+  color: #494a4d;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  height: 200px;
+  font-size: 24px;
+}
+
+.moveToModal-btn:hover,
+.moveToModal-btn:focus {
+  background-color: #16c79a;
+  box-shadow: 0 8px 8px 0 rgba(162,208,193, 0.3), 0 9px 25px 0 rgba(162,208,193, 0.3);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.big {
+  font-weight: lighter;
+  font-size: 30px;
+}
+
+/* Question STEPS  */
+.stepTxtNode {
+  font-size: 24px;
+  font-color: #737373;
+}
+
+.inputText {
+  display: inline-block;
+  font-size: 24px;
+}
+
+.input {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: #16c79a;
+  padding: 5px;
+  font-size: 24px;
+  color: #007c5c;
+  background-color: #e2f1ed;
+}
+
+.inputDiv {
+  padding-left: 80px;
+  margin-bottom: 40px;
 }

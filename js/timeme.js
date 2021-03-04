@@ -36,7 +36,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		var TimeMe = {
 
 			startStopTimes: {},
-			idleTimeoutMs: 30 * 1000,
+			idleTimeoutMs: 30 * 1000 * 1000,
 			currentIdleTimeMs: 0,
 			checkStateRateMs: 250,
 			active: false, // state if we are actively recording time
@@ -388,7 +388,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 			initialize: function (options) {
 
-				var idleTimeoutInSeconds = TimeMe.idleTimeoutMs || 30;
+				var idleTimeoutInSeconds = TimeMe.idleTimeoutMs || 3000;
 				var currentPageName = TimeMe.currentPageName || "default-page-name";
 				var websocketOptions = undefined;
 				var initialStartTime = undefined;

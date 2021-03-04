@@ -22,9 +22,13 @@
     </div>
   </div>
 
+  <div class="notWhatIWant" id = "notWhatIWant">
+    <div class="notWhatIWant-div">
+      <button class="btn btn-lg notWhatIWant-btn col-lg-12 col-md-12 col-sm-12 col-12" id="notWhatIWant-btn" type="button">Jump To</button> </button>
+    </div>
+  </div>
+
   <div class="contents-div col-lg-10 col-md-9 col-sm-8 col-8" id ="contents-div">
-    <p class="text1" id="text1"></p>
-    <p class="example" id="example"></p>
   </div>
 
   <!-- Question PopUp -->
@@ -41,7 +45,6 @@
 
   <!-- STUDY CONTENTS -->
   <div class="answer-btn-div" id="answer-btn-div">
-    <p class="question-text" id="question-text"></p>
     <p class="answer-A" id="answer-A">A</p>
     <button class="btn btn-lg answer-btn-1 col-lg-2 col-md-2 col-sm-3 col-3" id="answer-btn-1" type="button"></button><br>
     <p class="answer-B" id="answer-B">B</p>
@@ -60,7 +63,7 @@
   <!-- The Stress Fillout -->
   <textarea class = "stress" id="stress" name="stress" rows="8" cols="40"></textarea>
 
-  <!-- The Modal -->
+  <!-- The Psyc Modal -->
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close" id="close">&times;</span>
@@ -69,6 +72,49 @@
       <button class="btn btn-lg modal-btn2 col-lg-4 col-md-4 col-sm-4 col-4" id="modal-btn2" type="button">YES, I DO</button>
       <button class="btn btn-lg modal-btn3 col-lg-4 col-md-4 col-sm-4 col-4" id="modal-btn3" type="button">OKAY</button>
     </div>
+  </div>
+
+  <!-- The Move To... Modal -->
+  <div id="moveToModal_singleVar" class="modal">
+    <div class="moveToModal-content">
+      <span class="close" id="close">&times;</span>
+      <div class="moveToModal-suDiv">
+        <p class="moveToModal-text" id="moveToModal-text1">Solving Equation : Single Step</p>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn1" type="button">By addition <br><span class="grey"><br> $x - 3 = 5$</span></button>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn2" type="button">By subtraction<br><span class="grey"><br> $x + 5 = 2$</span></button>
+        <!-- <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn3" type="button">By multiplication<br><span class="grey"><br> $\dfrac{x}{2} = 4$</span></button>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn4" type="button">By division<br><span class="grey"><br>$15x = 3$</button><br> -->
+      </div>
+
+      <!-- <div class="moveToModal-suDiv">
+        <p class="moveToModal-text" id="moveToModal-text2">Solving Equation : Two Steps</p>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn5" type="button">Simple two steps<br><span class="grey"><br> $2x + 3 = 15$</button>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn6" type="button">Two terms in the numerator<br><span class="grey"><br> $\dfrac{x - 7}{3} = -12$</button>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn7" type="button">x with a fraction<br><span class="grey"><br> $\dfrac{1}{2}x + 5 = 18$</button><br />
+      </div>
+
+      <div class="moveToModal-suDiv">
+        <p class="moveToModal-text" id="moveToModal-text3">Solving Equation : Multi-Steps</p>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn8" type="button">Like terms<br><span class="grey"><br> $5 = 5x - 23 + 2x$</button>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn9" type="button">Multi-step with fractions<br><span class="grey"><br> $\dfrac{3}{4}x + \dfrac{x}{3} = 10$</button>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn10" type="button">Equation with decimals<br><span class="grey"><br> $3.5 - 0.02x = 1.24$</button><br />
+      </div> -->
+<!--
+      <div class="moveToModal-suDiv">
+        <p class="moveToModal-text" id="moveToModal-text4">Solving Equation : Variables on Both Sides</p>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn3" type="button">Variables On Both Sides<br><span class="grey"><br> $5x + 2 = 2x + 14$</button>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn4" type="button">Identity Equation</button><br />
+      </div> -->
+    </div>
+  </div>
+  <div id="moveToModal_twoVar" class="modal">
+    <div class="moveToModal-content">
+      <span class="close" id="close">&times;</span>
+      <div class="moveToModal-suDiv">
+        <p class="moveToModal-text" id="moveToModal-text5">Solving System of Equation</p>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn13" type="button">By Graphing <br><span class="grey"><br></span></button>
+        <button class="btn btn-lg moveToModal-btn col-lg-4 col-md-4 col-sm-4 col-4" id="moveToModal-btn14" type="button">Using Substitution<br><span class="grey"><br> $y = 2x$<br>$x - 3y = 14$</span></button>
+      </div>
   </div>
 
   <!-- Firebase ---------------------------------------->
@@ -90,6 +136,10 @@
   </script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="../js/study-contents/Algebra1/conceptForA.js" charset="utf-8"></script>
+  <script src="../js/study-contents/Algebra1/conceptForB.js" charset="utf-8"></script>
+  <script src="../js/study-contents/Algebra1/conceptForC.js" charset="utf-8"></script>
+  <script src="../js/study-contents/Algebra1/conceptForD.js" charset="utf-8"></script>
   <script src="../js/study-contents/Algebra1/foundation.js" charset="utf-8"></script>
   <script src="../js/study.js" charset="utf-8"></script>
   <!-- <script src="js/sessionLogging.js" charset="utf-8"></script> -->
