@@ -250,6 +250,8 @@ function getTextData(conceptsAndTexts) {
 }
 
 function prepareCheckUp() {
+  const text1 = document.createElement("text1");
+  text1.classList.add("text1");
   if (smallChapterNum == 0 ) {
     text1.innerHTML = "Okay, so, how are you doing so far?"
     btnYes.innerHTML = "I'M DOING JUST FINE"
@@ -264,6 +266,8 @@ function prepareCheckUp() {
     btnNo.style.display = "none"
     //stress.style.display = "inline-bock"
   }
+  contentsDiv.appendChild(text1);
+  btnsDiv.style.display = "inline-block";
 }
 
 function prepareFillInTheBlank(chapterName, smallChapter, questionID, studyData) {
@@ -481,7 +485,7 @@ function writeYesToFirebaseAndMoveOn() {
 function writeIDontGetItBtnYesAnswerToFireBaseAndMoveOn(timeSpentOnPage) {
   var now = new Date().toLocaleString();
   var contentsID = "C_" + chapterNum + "_" + smallChapterNum + "_" + conceptNum + "_dontGetIt_" + dontGetItNum
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + contentsID).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + contentsID).update({
     timeSpent: timeSpentOnPage,
     answer : btnYes.innerHTML,
     btnYesTime: now
@@ -497,7 +501,7 @@ function writeIDontGetItBtnYesAnswerToFireBaseAndMoveOn(timeSpentOnPage) {
 function writeContentsYesToFireBaseAndMoveOn(timeSpentOnPage) {
   var now = new Date().toLocaleString();
   var contentsID = "C_" + chapterNum + "_" + smallChapterNum + "_" + conceptNum
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + contentsID).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + contentsID).update({
     timeSpent: timeSpentOnPage,
     answer : btnYes.innerHTML,
     btnYesTime: now
@@ -515,7 +519,7 @@ function writeCheckUpYesToFireBaseAndMoveOn(timeSpentOnPage) {
   var nextConceptNum = localStorage.getItem("nextConceptNum")
   var prevConceptNum = parseInt(nextConceptNum) - 1
   var contentsID = "Q_0_0_" + prevConceptNum + "_" + chapterNumText + "_" + smallChapterNum
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + contentsID).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + contentsID).update({
     timeSpent: timeSpentOnPage,
     answer : btnYes.innerHTML,
     btnYesTime: now
@@ -533,7 +537,8 @@ function checkUpOrNextContents() {
     nextCheckUpPage()
   } else if (chapterNumText == "checkUp" && smallChapterNum !=0 ) { // moveon from checkUpToNextContents
     var nextConceptNum = localStorage.getItem("nextConceptNum")
-    window.location.href="study.html?" + "0|0" + "|" + nextConceptNum + "|1";
+    var currentChapterNum = localStorage.getItem("chapterNum")
+    window.location.href="study.html?" + currentChapterNum + "|0" + "|" + nextConceptNum + "|1";
   } else {
     moveOn()
   }
@@ -549,7 +554,7 @@ function nextChekcUpPageWithNotOkay(timeSpentOnPage) {
   var prevConceptNum = parseInt(nextConceptNum) - 1
   var contentsID = "Q_0_0_" + prevConceptNum + "_" + chapterNumText + "_" + smallChapterNum
 
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + contentsID).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + contentsID).update({
     timeSpent: timeSpentOnPage,
     answer : btnNo.innerHTML,
     btnNoTime: now
@@ -584,7 +589,7 @@ function writeNoToFirebaseAndMoveOn() {
 function writeDontGetItBtnNoAnswerToFirebaseAndMoveOn(timeSpentOnPage) {
   var now = new Date().toLocaleString();
   var contentsID = "C_" + chapterNum + "_" + smallChapterNum + "_" + conceptNum
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + contentsID + '_dontGetIt_' + dontGetItNum).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + contentsID + '_dontGetIt_' + dontGetItNum).update({
     didPressStillDontGetIt : true,
     stillDontGetItTime: now
   }, function(error) {
@@ -599,7 +604,7 @@ function writeDontGetItBtnNoAnswerToFirebaseAndMoveOn(timeSpentOnPage) {
 function writeContentsBtnNoAnswerToFirebaseAndMoveOn(timeSpentOnPage) {
   var now = new Date().toLocaleString();
   var contentsID = "C_" + chapterNum + "_" + smallChapterNum + "_" + conceptNum
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + contentsID).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + contentsID).update({
     timeSpent: timeSpentOnPage,
     answer : btnNo.innerHTML,
     btnNoTime: now
@@ -659,7 +664,7 @@ function writeAnswerToFirebase() {
 }
 
 function writeMultipleChoiceToFirebase(timeSpentOnPage) {
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + questionID).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + questionID).update({
     timeSpent: timeSpentOnPage,
     answer : answer,
     isRight: isRight
@@ -679,7 +684,7 @@ function insertAfter(referenceNode, newNode) {
 function writeFillInTheBlankToFirebase(timeSpentOnPage) {
   let userAnswers = getUserAnswers();
   let results = checkAnswer(userAnswers)
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + questionID).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + questionID).update({
     timeSpent: timeSpentOnPage,
     answer: userAnswers,
     isRight: results
@@ -749,8 +754,7 @@ function showAnswer() {
 }
 
 function questionMoveOn() {
-  //let checkUpRule = checkForCheckUp()
-  checkUpRule = false;
+  let checkUpRule = checkForCheckUp()
   let timeToSignUp = checkForSignUp()
 
   var nextConceptNum = parseInt(conceptNum) + 1
@@ -784,7 +788,7 @@ function checkForCheckUp() {
   var questionCount = localStorage.getItem("questionCount")
   if (questionCount != undefined && questionCount != "undefined") {
     questionCount = parseInt(questionCount)
-    if (questionCount == 3) {
+    if (questionCount == 2) {
       return true
     }
   } else {
@@ -797,7 +801,7 @@ function checkForSignUp() {
   console.log("qcount", questionCount)
   if (questionCount != undefined && questionCount != "undefined") {
     questionCount = parseInt(questionCount)
-    if (questionCount == 3) {
+    if (questionCount == 5) {
       return true
     }
   } else {
@@ -866,7 +870,7 @@ function modalBtn3Tapped() {
 }
 
 function saveModalAnswerToFB(modalContents, answer) {
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + questionID).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + questionID).update({
     modalContents: modalContents,
     modalAnswer: answer
   }, function(error) {
@@ -921,7 +925,7 @@ function moveBackToContentsFromDontGetIt() {
 }
 
 function writeQuestionToFirebaseAndShowPopUp() {
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + chapterNum + '/'  + smallChapterNum).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + chapterNum + '/'  + smallChapterNum).update({
     questionButtonTapped : true
   }, function(error) {
     if (error) {
@@ -939,7 +943,7 @@ function showQuestionPopUp() {
 function sendQuestion() {
   var now = new Date().toLocaleString();
   var contentsID = "C_" + chapterNum + "_" + smallChapterNum + "_" + conceptNum + "_dontGetIt_" + dontGetItNum
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + contentsID).update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + contentsID).update({
     question : userQuestion.value,
     email: email.value,
     questionSubmissionTime: now
@@ -1048,7 +1052,7 @@ function writeJumpOpen() {
   }
   console.log("id is", id)
   var now = new Date().toLocaleString();
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + id + '/jumpToOpen').update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + id + '/jumpToOpen').update({
     jumpBtnOpen: true,
     jumpBtnOpenTime: now
   }, function(error) {
@@ -1068,7 +1072,7 @@ function writeJumpToFirebase(jumpTo, url) {
   }
 
   var now = new Date().toLocaleString();
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + id + '/jumpTo').update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + id + '/jumpTo').update({
     jumpTo: jumpTo,
     jumpTime: now
   }, function(error) {

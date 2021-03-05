@@ -227,7 +227,7 @@ function writeLearnMoreClick() {
 // });
 
 function logVisit() {
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/' + 'visit').update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + 'visit').update({
     cohort: "MarketTest 2.0"
   }, function(error) {
     if (error) {
@@ -294,7 +294,7 @@ function writeToFirebaseAndMoveOn(userId, answer) {
 
   if (onboardingNum != "1" && onboardingNum != "2") {
     console.log("onboardingNum is", onboardingNum)
-    firebase.database().ref('mvp_1_1/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+    firebase.database().ref('mvp_1_2/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
       timeSpent: timeSpentOnPage,
       question : text1.innerHTML,
       answer: answer + ' : ' + innerHTML,
@@ -311,7 +311,7 @@ function writeToFirebaseAndMoveOn(userId, answer) {
       }
     });
   } else {
-    firebase.database().ref('mvp_1_1/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+    firebase.database().ref('mvp_1_2/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
       timeSpent: timeSpentOnPage,
       question : text1.innerHTML,
       answer: answer + ' : ' + innerHTML

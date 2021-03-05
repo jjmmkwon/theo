@@ -97,7 +97,7 @@ function saveDataAndProceed(user) {
 }
 
 function saveFirebaseUUID(userId) {
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/signUp').update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/signUp').update({
     uuid: userId
   }, function(error) {
     if (error) {

@@ -23,7 +23,7 @@ function getUUID() {
 function writeToFirebaseAndMoveOn() {
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
   timeSpentOnPage = timeSpentOnPage.toFixed(1);
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/tutor-intro').update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/tutor-intro').update({
     timeSpent: timeSpentOnPage
   }, function(error) {
     if (error) {

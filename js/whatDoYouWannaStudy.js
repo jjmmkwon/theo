@@ -52,7 +52,7 @@ function writeToFirebaseAndMoveOnToFoundation() {
   timeSpentOnPage = timeSpentOnPage.toFixed(1);
   var now = new Date().toLocaleString();
 
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
     timeSpent: timeSpentOnPage,
     at: now,
     wannaStudy : btn1.innerHTML,
@@ -70,7 +70,7 @@ function writeToFirebaseAndMoveOnToSingleVarEquation() {
   timeSpentOnPage = timeSpentOnPage.toFixed(1);
   var now = new Date().toLocaleString();
 
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
     timeSpent: timeSpentOnPage,
     at: now,
     wannaStudy : btn2.innerHTML,
@@ -88,7 +88,7 @@ function writeToFirebaseAndMoveOnToTwoVarEquation() {
   timeSpentOnPage = timeSpentOnPage.toFixed(1);
   var now = new Date().toLocaleString();
 
-  firebase.database().ref('mvp_1_1/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
+  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
     timeSpent: timeSpentOnPage,
     at: now,
     wannaStudy : btn3.innerHTML,
