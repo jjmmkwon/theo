@@ -96,19 +96,20 @@ function prepareView() {
     button4.innerHTML = "Between D- and D+ (or between 30-59)"
     button5.innerHTML = "F (or between 0-29)"
 
-  } else if (onboardingNum == 1) {
-    const image = document.createElement("img");
-    let source = "images/intro2.png"
-    image.src = source;
-    image.classList.add("image");
-    text1.appendChild(image);
-
-    button1.innerHTML = "Between A- and A+ (or above 90)"
-    button2.innerHTML = "Between B- and B+ (or between 80-89)"
-    button3.innerHTML = "Between C- and C+ (or between 70-79)"
-    button4.innerHTML = "Between D- and D+ (or between 60-69)"
-    button5.innerHTML = "F (or between 0-59)"
   }
+  // else if (onboardingNum == 1) {
+  //   const image = document.createElement("img");
+  //   let source = "images/intro2.png"
+  //   image.src = source;
+  //   image.classList.add("image");
+  //   text1.appendChild(image);
+  //
+  //   button1.innerHTML = "Between A- and A+ (or above 90)"
+  //   button2.innerHTML = "Between B- and B+ (or between 80-89)"
+  //   button3.innerHTML = "Between C- and C+ (or between 70-79)"
+  //   button4.innerHTML = "Between D- and D+ (or between 60-69)"
+  //   button5.innerHTML = "F (or between 0-59)"
+  // }
 }
 
 
@@ -236,11 +237,12 @@ function logVisit() {
 }
 
 function present(){
-  if (onboardingNum != 1 ) {
-    window.location.href="index.html?1";
-  } else if (onboardingNum == 1) {
-    window.location.href="html/whatDoYouWannaStudy.html";
-  }
+  // if (onboardingNum != 1 ) {
+  //   window.location.href="index.html?1";
+  // } else if (onboardingNum == 1) {
+  //   window.location.href="html/whatDoYouWannaStudy.html";
+  // }
+  window.location.href="html/whatDoYouWannaStudy.html";
 }
 
 function writeBtn1ToFirebaseAndMoveOn() {
