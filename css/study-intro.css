@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.navbar-custom {
+  /* background-color: #f2f2f9; */
+}
+
 .profile-image {
   margin-top: 50px;
   height: 200px;
@@ -11,8 +15,15 @@
   overflow: hidden;
 }
 
+.logoImage {
+  max-width:100px;
+  max-height:50px;
+  width: auto;
+  height: auto;
+}
+
+
 .intro-text {
-  margin-top: 30px;
   text-align: center;
   font-weight: lighter;
 }
@@ -22,7 +33,10 @@
 }
 
 .next-btn {
-  margin-top: 30px;
-  background-color: #E4E6EB;
-  height: 70px;
+  border: 2px solid #16c79a;
+  color: #26725a;
+  box-shadow: 0 4px 4px 0 rgba(225,229,227, 0.4), 0 6px 6px 0 rgba(225,229,227, 0.4);
+  margin-top: 70px;
+  margin-bottom: 20px;
+  height: 80px;
 }

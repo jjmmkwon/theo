@@ -16,6 +16,10 @@ p {
    display:inline-block;
 } */
 
+.body {
+  text-align: center;
+}
+
 .title {
   text-align: center;
   font-weight: lighter;
@@ -31,35 +35,40 @@ p {
   text-align: center;
 }
 
-.email {
+.name, .email, .password {
   width: 70%;
   height: 40%;
   display: block;
   margin: 0 auto;
+  margin-bottom: 20px;
   border: none;
   outline: none;
-  border-bottom: 2px solid black;
+  padding: 10px;
+  border: 1.5px solid #E4E6EB;
 }
 
-.password {
-  width: 70%;
-  height: 40%;
-  display: block;
-  margin: 0 auto;
-  border: none;
-  outline: none;
-  border-bottom: 2px solid black;
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #b2b3b7;
+  opacity: 1; /* Firefox */
 }
 
 .signUp, .signIn, .send-link, .next-btn{
+  width: 70%;
   display: inline-block;
-  background-color: #ff4d4d;
+  background-color: #16c79a;
   color: white;
   border: none;
   font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 50px;
   padding: 15px 32px;
   border-radius: 10px;
   font-size: 18px;
+}
+
+.division {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .btn-insturction{

@@ -8,6 +8,7 @@ const signInAndOut = document.getElementById("signInAndOut");
 const formContainer = document.getElementById("formContainer");
 const signUpTitle = document.getElementById("signUpTitle");
 const signUpDescription = document.getElementById("signUpDescription");
+const name = document.getElementById("name");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const signUpBtn = document.getElementById("signUp");
@@ -43,6 +44,8 @@ if(screenWidth < 480) { //mobile
   signUpDescription.style.fontSize = "40px"
   signUpDescription.style.color = "grey"
 
+  name.style.fontSize = "30px"
+  name.style.color = "grey"
   email.style.fontSize = "30px"
   email.style.color = "grey"
   password.style.fontSize = "30px"
@@ -97,7 +100,9 @@ function saveDataAndProceed(user) {
 }
 
 function saveFirebaseUUID(userId) {
-  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/signUp').update({
+  firebase.database().ref('mvp_1_3/' + 'users/' + uuid + '/signUp').update({
+    email: email.value,
+    name: name.value,
     uuid: userId
   }, function(error) {
     if (error) {
@@ -141,10 +146,16 @@ function getLevel() {
 // }
 
 function proceed() {
-  let nextConceptNum = localStorage.getItem("nextConceptNum")
-  let chapterNum = localStorage.getItem("chapterNum")
-  let smallChapterNum = localStorage.getItem("smallChapterNum")
-  window.location.href="study.html?" + chapterNum + "|" + smallChapterNum + "|" + nextConceptNum + "|1";
+  var chapterNum = 0;
+  let wannaStudy = localStorage.getItem("wannaStudy")
+  if (wannaStudy == "foundation"){
+    chapterNum = 0
+  } else if (wannaStudy == "singleVarEquation"){
+    chapterNum = 1
+  } else if (wannaStudy == "twoVarEquation"){
+    chapterNum = 2
+  }
+  window.location.href="study.html?" + chapterNum + "|0|0|1";
 }
 
 const fbErrorCodes = {

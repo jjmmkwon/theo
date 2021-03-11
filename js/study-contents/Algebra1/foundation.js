@@ -87,7 +87,7 @@ let study_contents = {
                   },
   "twoVarEquation" : {
                     "Solving Systems by Graphing" :  {
-                                              "Solving system of equations" : ["<span class='bold'>Systems of equations</span> <br>can be solved <br>in <span class='bold'>more than one way</span>"],
+                                              "Solving system of equations" : ["<span class='bold'>Systems of equations</span> <br>can be solved <br>in <span class='bold'>many ways</span>"],
                                               "Solving by graphing1" : ["<span class='bold'>1. By Graphing</span>", "\\(y = x + 2\\)<br>\\(y = 3x - 2\\)", "<br>one way of solving <br> a system of equation is<br>by <span class ='bold'>graphing</span> them<br>and finding an <span class='bold'>intersection</span>"],
                                               "Solving by graphing2" : ["<span class='bold'>1. By Graphing</span>", "\\(y = x + 2\\)<br>\\(y = 3x - 2\\)", "<br><span class='medium'>① Graph the first equation: \\(y = x + 2\\)</span>", img],
                                               "Solving by graphing2_img_urls" : ["", "", "", "twoVarEquation_0/y=x+2.png"],

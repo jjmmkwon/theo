@@ -12,7 +12,7 @@ var timeZone;
 var button = "";
 const intro = document.getElementById("intro");
 const introContentsContainer = document.getElementById("intro-contents");
-const text1 = document.getElementById("text1");
+const text1 = document.getElementById("intro-text");
 const button1 = document.getElementById("btn-1");
 const button2 = document.getElementById("btn-2");
 const button3 = document.getElementById("btn-3");
@@ -84,7 +84,11 @@ function prepareView() {
   // const struggle = localStorage.getItem("struggle
   if (onboardingNum == 0 || onboardingNum == undefined || onboardingNum == "undefined") {
     onboardingNum = 0
-    text1.innerHTML = "Welcome! <br>Before we start, what is your grade for Algebra so far? <br>(approximation is okay)"
+    const image = document.createElement("img");
+    let source = "images/intro1.png"
+    image.src = source;
+    image.classList.add("image");
+    text1.appendChild(image);
 
     button1.innerHTML = "Between A- and A+ (or above 90)"
     button2.innerHTML = "Between B- and B+ (or between 80-89)"
@@ -93,22 +97,17 @@ function prepareView() {
     button5.innerHTML = "F (or between 0-29)"
 
   } else if (onboardingNum == 1) {
-    text1.innerHTML = "What was your grade from the previous Math subject you took right before the current class?"
+    const image = document.createElement("img");
+    let source = "images/intro2.png"
+    image.src = source;
+    image.classList.add("image");
+    text1.appendChild(image);
 
     button1.innerHTML = "Between A- and A+ (or above 90)"
     button2.innerHTML = "Between B- and B+ (or between 80-89)"
     button3.innerHTML = "Between C- and C+ (or between 70-79)"
     button4.innerHTML = "Between D- and D+ (or between 60-69)"
     button5.innerHTML = "F (or between 0-59)"
-
-  } else if (onboardingNum == 2){
-    text1.innerHTML = "Okay, let's start<br>"
-
-    button1.innerHTML = "NEXT"
-    button2.style.display = "none"
-    button3.style.display = "none"
-    button4.style.display = "none"
-    button5.style.display = "none"
   }
 }
 
@@ -227,7 +226,7 @@ function writeLearnMoreClick() {
 // });
 
 function logVisit() {
-  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/' + 'visit').update({
+  firebase.database().ref('mvp_1_3/' + 'users/' + uuid + '/' + 'visit').update({
     cohort: "MarketTest 2.0"
   }, function(error) {
     if (error) {
@@ -237,12 +236,10 @@ function logVisit() {
 }
 
 function present(){
-  if (onboardingNum != 1 && onboardingNum != 2) {
+  if (onboardingNum != 1 ) {
     window.location.href="index.html?1";
   } else if (onboardingNum == 1) {
-    window.location.href="index.html?2";
-  } else {
-    window.location.href="html/study-intro.html";
+    window.location.href="html/whatDoYouWannaStudy.html";
   }
 }
 
@@ -294,9 +291,8 @@ function writeToFirebaseAndMoveOn(userId, answer) {
 
   if (onboardingNum != "1" && onboardingNum != "2") {
     console.log("onboardingNum is", onboardingNum)
-    firebase.database().ref('mvp_1_2/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+    firebase.database().ref('mvp_1_3/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
       timeSpent: timeSpentOnPage,
-      question : text1.innerHTML,
       answer: answer + ' : ' + innerHTML,
       dateAndTime : dateAndTime,
       timeZone : timeZone,
@@ -311,7 +307,7 @@ function writeToFirebaseAndMoveOn(userId, answer) {
       }
     });
   } else {
-    firebase.database().ref('mvp_1_2/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+    firebase.database().ref('mvp_1_3/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
       timeSpent: timeSpentOnPage,
       question : text1.innerHTML,
       answer: answer + ' : ' + innerHTML

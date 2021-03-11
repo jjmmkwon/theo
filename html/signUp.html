@@ -13,23 +13,25 @@
     <link rel="stylesheet" href="../css/styles.css"/>
   </head>
 
-  <body>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand brand nav-link" id="brand-link" href="index.html">Theo</a>
-        <div class="navbar-nav">
-          <a class="nav-link active signInAndOut firstFromRight" id="signInAndOut" href="signInAndOut.html">Sign In<span class="sr-only">(current)</span></a>
-        </div>
-    </nav> -->
+  <body class="body">
+    <nav class="navbar navbar-expand-lg navbar-custom justify-content-between">
+      <a class="navbar-brand brand nav-link brand-link" id="brand-link" href="index.html"><img src="../images/Beta_Logo.png" alt="beta_logo" class="logoImage"></a>
+      <div class="navbar-nav">
+         <!-- <a class="nav-link active signInAndOut firstFromRight" id="signInAndOut" href="signInAndOut.html">Sign In<span class="sr-only">(current)</span></a> -->
+        <!-- <button class="btn btn-success btn-long my-2 my-sm-0 learn-more-btn" type="submit" onclick="writeLearnMoreClick()">Learn More</button> -->
+      </div>
+    </nav>
 
     <!-- Intro -->
-
+    <h3 class="intro-text" id ="intro-text"><img src="../images/signup.png" alt="beta_logo" class="theo_image"></h3>
     <div class="formContainer" id="formContainer">
-      <br /><br /><h4 class="title" id="title"> You are doing great 👏<br>Now, to save your work and continue,<br>please create an account</h4>
+      <h4 class="title" id="title"> </h4>
       <br/>
       <br/>
-      <input type = "email" placeholder="email" class="email" id="email"/><br/><br/><br/>
-      <input type = "password" placeholder="password" class="password" id="password"/><br/>
-      <br/><br/><button oncick = "signUp()" class="signUp" id="signUp">Sign Up</button><br/><br/><br/><br/>
+      <input type = "name" placeholder="Your Name" class="name" id="name"/>
+      <input type = "email" placeholder="Your Email" class="email" id="email"/>
+      <input type = "password" placeholder="Password" class="password" id="password"/>
+      <button oncick = "signUp()" class="signUp" id="signUp">Sign Up & Start</button>
     </div>
 
     <!-- Firebase ---------------------------------------->

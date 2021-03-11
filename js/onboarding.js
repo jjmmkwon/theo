@@ -334,7 +334,7 @@ function writeToFirebaseAndMoveOn(userId, answer) {
   }
 
   var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-  firebase.database().ref('test1_2/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
+  firebase.database().ref('test1_3/' + 'users/' + userId + '/onboarding/' + onboardingNum).update({
     timeSpent: timeSpentOnPage,
     question : text1.innerHTML,
     answer: answer + ' : ' + innerHTML

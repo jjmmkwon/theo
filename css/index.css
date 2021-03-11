@@ -5,12 +5,24 @@
 .title {
 }
 
-.body {
+.index-body{
   font-family: Roboto,Helvetica,Arial,sans-serif;
+  /* background-color: #fafffd */
 }
 
 .brand {
   color: black;
+}
+
+.navbar-custom {
+  /* background-color: #fafffd */
+}
+
+.logoImage {
+  max-width:100px;
+  max-height:50px;
+  width: auto;
+  height: auto;
 }
 
 .signInAndOut {
@@ -67,7 +79,7 @@
 }
 
 .text1{
-  margin-top: 80px;
+  margin-top: 50px;
   margin-bottom: 20px;
   text-align: center;
   font-size: 25px;
@@ -85,13 +97,16 @@
 }
 
 .btn-1, .btn-2, .btn-3, .btn-4, .btn-5, .btn-6 {
-  background-color: #E4E6EB;
-  margin-bottom: 5px;
+  border: 2px solid #16c79a;
+  color: #26725a;
+  box-shadow: 0 4px 4px 0 rgba(225,229,227, 0.4), 0 6px 6px 0 rgba(225,229,227, 0.4);
+  margin-bottom: 20px;
+  height: 80px;
 }
 
 .btn-1:focus, .btn-2:focus, .btn-3:focus, .btn-4:focus, .btn-5:focus, .btn-6:focus  {
-  background-color: #403ca6;
-  color: white;
+  background-color: #7dbaa7;
+  color: #26725a;
 }
 
 .text2-text {

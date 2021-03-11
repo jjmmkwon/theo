@@ -52,7 +52,7 @@ function writeToFirebaseAndMoveOnToFoundation() {
   timeSpentOnPage = timeSpentOnPage.toFixed(1);
   var now = new Date().toLocaleString();
 
-  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
+  firebase.database().ref('mvp_1_3/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
     timeSpent: timeSpentOnPage,
     at: now,
     wannaStudy : btn1.innerHTML,
@@ -70,7 +70,7 @@ function writeToFirebaseAndMoveOnToSingleVarEquation() {
   timeSpentOnPage = timeSpentOnPage.toFixed(1);
   var now = new Date().toLocaleString();
 
-  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
+  firebase.database().ref('mvp_1_3/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
     timeSpent: timeSpentOnPage,
     at: now,
     wannaStudy : btn2.innerHTML,
@@ -88,7 +88,7 @@ function writeToFirebaseAndMoveOnToTwoVarEquation() {
   timeSpentOnPage = timeSpentOnPage.toFixed(1);
   var now = new Date().toLocaleString();
 
-  firebase.database().ref('mvp_1_2/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
+  firebase.database().ref('mvp_1_3/' + 'users/' + uuid + '/whatDoYouWannaStudy/').update({
     timeSpent: timeSpentOnPage,
     at: now,
     wannaStudy : btn3.innerHTML,
@@ -104,10 +104,11 @@ function writeToFirebaseAndMoveOnToTwoVarEquation() {
 function moveOnTo(next) {
   // window.location.href="study.html?0|0|0|1";
   if (next == 'foundation') {
-    window.location.href="study.html?0|0|0|1"
+    localStorage.setItem("wannaStudy", "foundation")
   } else if (next == 'singleVarEquation'){
-    window.location.href="study.html?1|0|0|1"
+    localStorage.setItem("wannaStudy", "singleVarEquation")
   } else if (next == "twoVarEquation") {
-    window.location.href="study.html?2|0|0|1"
+    localStorage.setItem("wannaStudy", "twoVarEquation")
   }
+  window.location.href="signUp.html"
 }
